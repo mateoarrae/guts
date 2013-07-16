@@ -15,7 +15,7 @@ Have it :)
 Early Days
 ----------
 
-I've really only just begun this theme. The plan is for it to become a lightweight, organised base for anyone to begin their theme developemnt on.
+I've really only just begun this theme. The plan is for it to become a lightweight, organised base for anyone to begin their theme development on.
 
 Common responsive page layouts provided by Foundation will be included to get your project started quickly.
 
@@ -23,4 +23,4 @@ Common responsive page layouts provided by Foundation will be included to get yo
 
 **Please feel free to contribute:**
 
->Submit bugs and / or Fixes here > https://github.com/rozeykex/guts/issues
+>Submit bugs and / or fixes here > https://github.com/rozeykex/guts/issues
