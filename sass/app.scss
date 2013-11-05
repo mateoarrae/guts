@@ -54,3 +54,14 @@
 // @import "foundation/components/tooltips";
 // @import "foundation/components/dropdown";
 
+// 
+// Guts Styling
+// Comment out these imports if you don't want to use SMACSS Scalable and Modulare Architecture for CSS
+// Find out more about SMACCS here http://smacss.com/
+//
+
+@import "layout";
+@import "module";
+@import "state";
+
+// Add your own imports here if you want new sass/_stylesheets.scss to be compiled into css/app.css
