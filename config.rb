@@ -1,3 +1,5 @@
+# Set Gem version dependencies below for anybody using codekit to collaborate with you.
+gem 'zurb-foundation','=4.3.2'
 require 'zurb-foundation'
 # Require any additional compass plugins here.
 
