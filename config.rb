@@ -1,6 +1,4 @@
-# Set Gem version dependencies below for anybody using codekit to collaborate with you.
-gem 'zurb-foundation','=4.3.2'
-require 'zurb-foundation'
+add_import_path "bower_components/foundation/scss"
 # Require any additional compass plugins here.
 
 

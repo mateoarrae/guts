@@ -158,27 +158,27 @@ function guts_scripts_styles() {
 	
 	// Modernizr acts as a shim for HTML5 elements for older browsers as well as detection for mobile devices.
 	// It is also used by Foundation and should be included in the head. Find out more at http://modernizr.com/
-	wp_enqueue_script( 'modernizer', get_template_directory_uri() . '/js/vendor/custom.modernizr.js', false, '2013-11-05', false );
+	wp_enqueue_script( 'modernizer', get_template_directory_uri() . 'bower_components/foundation/js/vendor/modernizr.js', false, '2014-02-01', false );
 	
 	// Include Foundation Core and all JavaScript plugins or load them individually below.
 	// Find out more at http://foundation.zurb.com/docs/javascript.html
 	// Should probably use zepto first to be true to Foundation and faster for mobile. not sure it plays nice with WP. Rose
-	wp_enqueue_script( 'foundation', get_template_directory_uri() . '/js/foundation/foundation.js', array( 'jquery' ), '2013-11-05', true );
-	// wp_enqueue_script( 'foundation-abide', get_template_directory_uri() . '/js/foundation/foundation.abide.js', array( 'jquery' ), '2013-11-05', true );
-	// wp_enqueue_script( 'foundation-alerts', get_template_directory_uri() . '/js/foundation/foundation.alerts.js', array( 'jquery' ), '2013-11-05', true );
-	// wp_enqueue_script( 'foundation-clearing', get_template_directory_uri() . '/js/foundation/foundation.clearing.js', array( 'jquery' ), '2013-11-05', true );
-	// wp_enqueue_script( 'foundation-cookie', get_template_directory_uri() . '/js/foundation/foundation.cookie.js', array( 'jquery' ), '2013-11-05', true );
-	// wp_enqueue_script( 'foundation-dropdown', get_template_directory_uri() . '/js/foundation/foundation.dropdown.js', array( 'jquery' ), '2013-11-05', true );
-	// wp_enqueue_script( 'foundation-forms', get_template_directory_uri() . '/js/foundation/foundation.forms.js', array( 'jquery' ), '2013-11-05', true );
-	// wp_enqueue_script( 'foundation-interchange', get_template_directory_uri() . '/js/foundation/foundation.interchange.js', array( 'jquery' ), '2013-11-05', true );
-	// wp_enqueue_script( 'foundation-joyride', get_template_directory_uri() . '/js/foundation/foundation.joyride.js', array( 'jquery' ), '2013-11-05', true );
-	// wp_enqueue_script( 'foundation-magellan', get_template_directory_uri() . '/js/foundation/foundation.magellan.js', array( 'jquery' ), '2013-11-05', true );
-	// wp_enqueue_script( 'foundation-orbit', get_template_directory_uri() . '/js/foundation/foundation.orbit.js', array( 'jquery' ), '2013-11-05', true );
-	// wp_enqueue_script( 'foundation-placeholder', get_template_directory_uri() . '/js/foundation/foundation.placeholder.js', array( 'jquery' ), '2013-11-05', true );
-	// wp_enqueue_script( 'foundation-reveal', get_template_directory_uri() . '/js/foundation/foundation.reveal.js', array( 'jquery' ), '2013-11-05', true );
-	// wp_enqueue_script( 'foundation-section', get_template_directory_uri() . '/js/foundation/foundation.section.js', array( 'jquery' ), '2013-11-05', true );
-	// wp_enqueue_script( 'foundation-tooltips', get_template_directory_uri() . '/js/foundation/foundation.tooltips.js', array( 'jquery' ), '2013-11-05', true );
-	// wp_enqueue_script( 'foundation-topbar', get_template_directory_uri() . '/js/foundation/foundation.topbar.js', array( 'jquery' ), '2013-11-05', true );
+	wp_enqueue_script( 'foundation', get_template_directory_uri() . 'bower_components/foundation/js/foundation.min.js', array( 'jquery' ), '2014-02-01', true );
+	// wp_enqueue_script( 'foundation-abide', get_template_directory_uri() . 'bower_components/foundation/js/foundation/foundation.abide.js', array( 'jquery' ), '2014-02-01', true );
+	// wp_enqueue_script( 'foundation-alerts', get_template_directory_uri() . 'bower_components/foundation/js/foundation/foundation.alerts.js', array( 'jquery' ), '2014-02-01', true );
+	// wp_enqueue_script( 'foundation-clearing', get_template_directory_uri() . '/js/foundation/foundation.clearing.js', array( 'jquery' ), '2014-02-01', true );
+	// wp_enqueue_script( 'foundation-cookie', get_template_directory_uri() . 'bower_components/foundation/js/foundation/foundation.cookie.js', array( 'jquery' ), '2014-02-01', true );
+	// wp_enqueue_script( 'foundation-dropdown', get_template_directory_uri() . 'bower_components/foundation/js/foundation/foundation.dropdown.js', array( 'jquery' ), '2014-02-01', true );
+	// wp_enqueue_script( 'foundation-forms', get_template_directory_uri() . 'bower_components/foundation/js/foundation/foundation.forms.js', array( 'jquery' ), '2014-02-01', true );
+	// wp_enqueue_script( 'foundation-interchange', get_template_directory_uri() . 'bower_components/foundation/js/foundation/foundation.interchange.js', array( 'jquery' ), '2014-02-01', true );
+	// wp_enqueue_script( 'foundation-joyride', get_template_directory_uri() . 'bower_components/foundation/js/foundation/foundation.joyride.js', array( 'jquery' ), '2014-02-01', true );
+	// wp_enqueue_script( 'foundation-magellan', get_template_directory_uri() . 'bower_components/foundation/js/foundation/foundation.magellan.js', array( 'jquery' ), '2014-02-01', true );
+	// wp_enqueue_script( 'foundation-orbit', get_template_directory_uri() . 'bower_components/foundation/js/foundation/foundation.orbit.js', array( 'jquery' ), '2014-02-01', true );
+	// wp_enqueue_script( 'foundation-placeholder', get_template_directory_uri() . 'bower_components/foundation/js/foundation/foundation.placeholder.js', array( 'jquery' ), '2014-02-01', true );
+	// wp_enqueue_script( 'foundation-reveal', get_template_directory_uri() . 'bower_components/foundation/js/foundation/foundation.reveal.js', array( 'jquery' ), '2014-02-01', true );
+	// wp_enqueue_script( 'foundation-section', get_template_directory_uri() . 'bower_components/foundation/js/foundation/foundation.section.js', array( 'jquery' ), '2014-02-01', true );
+	// wp_enqueue_script( 'foundation-tooltips', get_template_directory_uri() . 'bower_components/foundation/js/foundation/foundation.tooltips.js', array( 'jquery' ), '2014-02-01', true );
+	// wp_enqueue_script( 'foundation-topbar', get_template_directory_uri() . 'bower_components/foundation/js/foundation/foundation.topbar.js', array( 'jquery' ), '2014-02-01', true );
 
 	// Loads JavaScript file ready for Customisation.
 	// not sure we'll make use of this. Rose
