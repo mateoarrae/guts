@@ -353,32 +353,38 @@ if ( ! function_exists( 'guts_entry_meta' ) ) :
  * @return void
  */
 function guts_entry_meta() {
+	
+	echo '<dl class="sub-nav">';
+	
 	if ( is_sticky() && is_home() && ! is_paged() )
-		echo '<span class="featured-post">' . __( 'Sticky', 'guts' ) . '</span>';
+		echo '<dd class="featured-post">' . __( 'Sticky', 'guts' ) . '</dd>';
 
 	if ( ! has_post_format( 'link' ) && 'post' == get_post_type() )
+		echo '<dd class="date">';
 		guts_entry_date();
+		echo '</dd>';
 
 	// Translators: used between list items, there is a space after the comma.
 	$categories_list = get_the_category_list( __( ', ', 'guts' ) );
 	if ( $categories_list ) {
-		echo '<span class="categories-links">' . $categories_list . '</span>';
+		echo '<dd class="categories-links">' . $categories_list . '</dd>';
 	}
 
 	// Translators: used between list items, there is a space after the comma.
 	$tag_list = get_the_tag_list( '', __( ', ', 'guts' ) );
 	if ( $tag_list ) {
-		echo '<span class="tags-links">' . $tag_list . '</span>';
+		echo '<dd class="tags-links">' . $tag_list . '</dd>';
 	}
 
 	// Post author
 	if ( 'post' == get_post_type() ) {
-		printf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>',
+		printf( '<dd class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></dd>',
 			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 			esc_attr( sprintf( __( 'View all posts by %s', 'guts' ), get_the_author() ) ),
 			get_the_author()
 		);
 	}
+	echo '</dl>';
 }
 endif;
 

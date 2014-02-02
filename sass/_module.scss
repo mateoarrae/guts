@@ -3,3 +3,14 @@
  * Find out more about SMACSS here http://smacss.com/
  *
  */
+ 
+
+.vcard {
+	&.author {
+		padding:0px;
+		border:none;
+		.fn {
+			font-size: inherit;
+		}
+	}
+}
