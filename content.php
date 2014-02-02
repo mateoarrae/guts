@@ -20,10 +20,10 @@
 		</h3>
 		<?php endif; // is_single() ?>
 		
-        <div class="entry-meta">
+        <dl class="sub-nav entry-meta">
         	<?php guts_entry_meta(); ?>
-			<?php edit_post_link( __( 'Edit', 'guts' ), '<span class="edit-link">', '</span>' ); ?>
-		</div>
+			<?php edit_post_link( __( 'Edit', 'guts' ), '<dd class="edit-link">', '</dd>' ); ?>
+		</dl>
  
  
 	 <?php if ( is_search() ) : // Only display Excerpts for Search ?>

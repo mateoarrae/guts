@@ -353,9 +353,7 @@ if ( ! function_exists( 'guts_entry_meta' ) ) :
  * @return void
  */
 function guts_entry_meta() {
-	
-	echo '<dl class="sub-nav">';
-	
+		
 	if ( is_sticky() && is_home() && ! is_paged() )
 		echo '<dd class="featured-post">' . __( 'Sticky', 'guts' ) . '</dd>';
 
@@ -384,7 +382,6 @@ function guts_entry_meta() {
 			get_the_author()
 		);
 	}
-	echo '</dl>';
 }
 endif;
 
