@@ -7835,6 +7835,40 @@ th.hide-for-touch {
   font-size: inherit;
 }
 
+/* line 20, ../sass/_module.scss */
+.widget ul {
+  display: block;
+  margin: 0;
+  padding: 0.875rem 0;
+  list-style-type: none;
+  list-style-position: inside;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+}
+/* line 54, ../bower_components/foundation/scss/foundation/components/_side-nav.scss */
+.widget ul li {
+  margin: 0 0 0.4375rem 0;
+  font-size: 0.875rem;
+}
+/* line 58, ../bower_components/foundation/scss/foundation/components/_side-nav.scss */
+.widget ul li a {
+  display: block;
+  color: #008cba;
+}
+/* line 63, ../bower_components/foundation/scss/foundation/components/_side-nav.scss */
+.widget ul li.active > a:first-child {
+  color: #4d4d4d;
+  font-weight: normal;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+}
+/* line 69, ../bower_components/foundation/scss/foundation/components/_side-nav.scss */
+.widget ul li.divider {
+  border-top: 1px solid;
+  height: 0;
+  padding: 0;
+  list-style: none;
+  border-top-color: white;
+}
+
 /*
  * State rules are ways to describe how our modules or layouts will look when in a particular state. 
  * Is it hidden or expanded? Is it active or inactive? They are about describing how a module or layout

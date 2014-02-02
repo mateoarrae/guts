@@ -14,3 +14,10 @@
 		}
 	}
 }
+
+
+.widget {
+	ul {
+		@include side-nav();
+	}
+}
