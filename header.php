@@ -1,7 +1,6 @@
 <?php
 /**
- * The Defaults Header for Guts uses Foundations Blog Template
- * http://foundation.zurb.com/page-templates4/blog.html
+ * The Default Header for Guts
  *
  * @package WordPress
  * @subpackage Guts
@@ -24,24 +23,69 @@
 
 <body <?php body_class(); ?>>
 
-<!-- Nav Bar -->
-
-  <div id="page" class="row">
-    <div class="large-12 columns">
       <div class="l-primary-nav nav-bar right" role="navigation">
        <a class="screen-reader-text skip-link" href="#content" title="<?php esc_attr_e( 'Skip to content', 'guts' ); ?>"><?php _e( 'Skip to content', 'guts' ); ?></a>
-       <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
       </div>
       
-      	<h1 class="site-title">
-	      	<a class="home-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-	      		<?php bloginfo( 'name' ); ?>
-	      	</a>
-	      	<small><?php bloginfo( 'description' ); ?></small>
-      	</h1>
+      <header id="site-header">
+		<nav class="top-bar" role="navigation">
+            <ul class="title-area">
+                <li class="name">
+                    <h1 class="site-title">
+				      	<a class="home-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+			      	</h1>
+                </li>          
+                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+            </ul>
+            <section class="top-bar-section">
+	            <?php wp_nav_menu(array( 
+			        'container' => false,                           // remove nav container
+			        'container_class' => '',           			    // class of container
+			        'menu' => '',                      	        	// menu name
+			        'menu_class' => 'top-bar-menu left',         	// adding custom nav class
+			        'theme_location' => 'primary-left',             // where it's located in the theme
+			        'before' => '',                                 // before each link <a> 
+			        'after' => '',                                  // after each link </a>
+			        'link_before' => '',                            // before each link text
+			        'link_after' => '',                             // after each link text
+			        'depth' => 5,                                   // limit the depth of the nav
+			    	'fallback_cb' => false,                         // fallback function (see below)
+			        'walker' => new guts_top_bar_walker()
+				)); ?>
+
+                <?php wp_nav_menu(array( 
+			        'container' => false,                           // remove nav container
+			        'container_class' => '',           				// class of container
+			        'menu' => '',                      	        	// menu name
+			        'menu_class' => 'top-bar-menu right',         	// adding custom nav class
+			        'theme_location' => 'primary',                  // where it's located in the theme
+			        'before' => '',                                 // before each link <a> 
+			        'after' => '',                                  // after each link </a>
+			        'link_before' => '',                            // before each link text
+			        'link_after' => '',                             // after each link text
+			        'depth' => 5,                                   // limit the depth of the nav
+			    	'fallback_cb' => false,                         // fallback function (see below)
+			        'walker' => new guts_top_bar_walker()
+				)); ?>
+            </section>
+        </nav>
+		<div id="page" class="row">
+			<div class="large-12 columns">   
+				<h1 class="site-title">
+			      	<a class="home-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+			      		<?php bloginfo( 'name' ); ?>
+			      	</a>
+			      	<small><?php bloginfo( 'description' ); ?></small>
+		      	</h1>
+	      <hr />
+	    </div>
+	  </div>
+	  </header>
       
-      <hr />
-    </div>
-  </div>
+      
+
+   
+      	
+      
 
   <!-- End Nav -->

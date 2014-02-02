@@ -79,8 +79,10 @@ function guts_setup() {
 		'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video'
 	) );
 
-	// This theme uses wp_nav_menu() in one location.
+	// This theme uses wp_nav_menu() in three locations.
 	register_nav_menu( 'primary', __( 'Navigation Menu', 'guts' ) );
+	register_nav_menu( 'primary-left', __( 'Left Navigation Menu', 'guts' ) );
+	register_nav_menu( 'secondary', __( 'Footer Navigation Menu', 'guts' ) );
 
 	/*
 	 * This theme uses a custom image size for featured images, displayed on
@@ -553,3 +555,41 @@ function guts_customize_preview_js() {
 	wp_enqueue_script( 'guts-customizer', get_template_directory_uri() . '/js/wordpress/theme-customizer.js', array( 'customize-preview' ), '20131105', true );
 }
 add_action( 'customize_preview_init', 'guts_customize_preview_js' );
+
+/**
+ * Foundation Top Bar Walker 
+ * Compatible with Foundation 4 and 5
+ *
+ * @since Guts 0.0.1
+ */
+class guts_top_bar_walker extends Walker_Nav_Menu {
+
+    function display_element($element, &$children_elements, $max_depth, $depth=0, $args, &$output) {
+        $element->has_children = !empty($children_elements[$element->ID]);
+        $element->classes[] = ($element->current || $element->current_item_ancestor) ? 'active' : '';
+        $element->classes[] = ($element->has_children) ? 'has-dropdown' : '';
+
+        parent::display_element($element, $children_elements, $max_depth, $depth, $args, $output);
+    }
+
+    function start_el(&$output, $item, $depth, $args) {
+        $item_html = '';
+        parent::start_el($item_html, $item, $depth, $args);
+
+        $output .= ($depth == 0) ? '<li class="divider"></li>' : '';
+
+        $classes = empty($item->classes) ? array() : (array) $item->classes;
+
+        if(in_array('section', $classes)) {
+            $output .= '<li class="divider"></li>';
+            $item_html = preg_replace('/<a[^>]*>(.*)<\/a>/iU', '<label>$1</label>', $item_html);
+        }
+
+        $output .= $item_html;
+    }
+
+    function start_lvl(&$output, $depth = 0, $args = array()) {
+        $output .= "\n<ul class=\"sub-menu dropdown\">\n";
+    }
+
+}
