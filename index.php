@@ -17,35 +17,29 @@
 get_header(); ?>
 
 
-<!-- Main Page Content and Sidebar -->
 
-  <div class="row">
-
-    <!-- Main Blog Content -->
-    <div id="content" class="l-site-content large-9 columns" role="main">
+<div class="row">
+	<div class="large-8 columns">
+	    <div id="content" class="l-site-content" role="main">
+		
+			<?php if ( have_posts() ) : ?>
 	
-		<?php if ( have_posts() ) : ?>
-
-			<?php /* The loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>
-				<?php //get_template_part( 'content/content', get_post_format() ); ?>
-				<?php get_template_part( 'content' ); ?>
-			<?php endwhile; ?>
-
-			<?php guts_paging_nav(); ?>
-
-		<?php else : ?>
-			<?php get_template_part( 'content', 'none' ); ?>
-		<?php endif; ?>
-
-    </div>
-    <!-- End Main Content -->
-
-
-    <?php get_sidebar(); ?>
-  </div>
-
-  <!-- End Main Content and Sidebar -->
-  
-
+				<?php /* The loop */ ?>
+				<?php while ( have_posts() ) : the_post(); ?>
+					<?php //get_template_part( 'content/content', get_post_format() ); ?>
+					<?php get_template_part( 'content' ); ?>
+				<?php endwhile; ?>
+	
+				<?php guts_paging_nav(); ?>
+	
+			<?php else : ?>
+				<?php get_template_part( 'content', 'none' ); ?>
+			<?php endif; ?>
+	
+	    </div><!-- #content -->
+	</div>
+	<div class="large-3 offset-1 columns">
+	    <?php get_sidebar(); ?>
+	</div>
+</div>
 <?php get_footer(); ?>

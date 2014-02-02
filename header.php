@@ -69,7 +69,7 @@
 				)); ?>
             </section>
         </nav>
-		<div id="page" class="row">
+		<div class="row">
 			<div class="large-12 columns">   
 				<h1 class="site-title">
 			      	<a class="home-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
@@ -77,15 +77,8 @@
 			      	</a>
 			      	<small><?php bloginfo( 'description' ); ?></small>
 		      	</h1>
-	      <hr />
 	    </div>
 	  </div>
 	  </header>
-      
-      
 
-   
-      	
-      
-
-  <!-- End Nav -->
+<hr />

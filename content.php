@@ -21,22 +21,19 @@
 		<?php endif; // is_single() ?>
 		
         <div class="entry-meta">
-        	<?php //guts_entry_meta(); ?>
+        	<?php guts_entry_meta(); ?>
 			<?php edit_post_link( __( 'Edit', 'guts' ), '<span class="edit-link">', '</span>' ); ?>
 		</div>
  
  
 	 <?php if ( is_search() ) : // Only display Excerpts for Search ?>
-		<div class="entry-summary row">
-	      <div class="<?php if ( has_post_thumbnail() && ! post_password_required() ) : ?>large-6<?php else: ?>large-12<?php endif; ?> columns">
-		        <?php the_excerpt(); ?>
-	      </div>
+		<div class="entry-summary">
+		  <?php the_excerpt(); ?>
 		  <?php if ( has_post_thumbnail() && ! post_password_required() ) : ?>
-		  	<div class="entry-thumbnail large-6 columns">
+		  	<div class="entry-thumbnail">
 			  	<?php the_post_thumbnail(); ?>
 			</div>
 		  <?php endif; ?>
-	      </div>
 	    </div><!-- .entry-summary -->
 		<?php else : ?>
 		<div class="entry-content">
