@@ -201,8 +201,8 @@ function guts_scripts_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'guts_scripts_styles' );
 
-/**
- * Initialise Foundation before </body>.
+/**
+ * Initialise Foundation.
  * @since Guts 0.0.1
  */
 function guts_initialise_foundation(){ ?>
