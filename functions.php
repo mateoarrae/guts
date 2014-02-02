@@ -357,7 +357,7 @@ function guts_entry_meta() {
 		echo '<span class="featured-post">' . __( 'Sticky', 'guts' ) . '</span>';
 
 	if ( ! has_post_format( 'link' ) && 'post' == get_post_type() )
-		twentythirteen_entry_date();
+		guts_entry_date();
 
 	// Translators: used between list items, there is a space after the comma.
 	$categories_list = get_the_category_list( __( ', ', 'guts' ) );
