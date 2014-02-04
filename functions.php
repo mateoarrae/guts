@@ -208,7 +208,7 @@ add_action( 'wp_enqueue_scripts', 'guts_scripts_styles' );
  */
 function guts_initialise_foundation(){ ?>
 	<script>
-		$(document).foundation();
+		jQuery(document).foundation();
   	</script>
 <?php }
 add_action( 'wp_footer', 'guts_initialise_foundation', 200 );
