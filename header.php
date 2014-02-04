@@ -22,10 +22,6 @@
 </head>
 
 <body <?php body_class(); ?>>
-
-      <div class="l-primary-nav nav-bar right" role="navigation">
-       <a class="screen-reader-text skip-link" href="#content" title="<?php esc_attr_e( 'Skip to content', 'guts' ); ?>"><?php _e( 'Skip to content', 'guts' ); ?></a>
-      </div>
       
       <header id="site-header">
 		<nav class="top-bar" role="navigation">
