@@ -15,7 +15,7 @@
 
       <div class="row">
         <div class="large-8 columns">
-          <?php get_sidebar( 'Footer' ); ?>
+          <?php get_sidebar( 'footer' ); ?>
         </div>
         <div class="large-3 offset-1 columns" role="navigation">
         	<?php wp_nav_menu( array( 'theme_location' => 'secondary', 'container' => false, 'menu_class' => 'side-nav' ) ); ?>
