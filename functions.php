@@ -23,12 +23,6 @@
  * @since Guts 0.0.1
  */
 
-
-/**
- * Add support for a custom header image.
- */
-require get_template_directory() . '/includes/custom-header.php';
-
 /**
  * Guts only works in WordPress 3.6 or later.
  */
@@ -61,9 +55,6 @@ function guts_setup() {
 	 * template files.
 	 */
 	load_theme_textdomain( 'guts', get_template_directory() . '/languages' );
-
-	// Adds RSS feed links to <head> for posts and comments.
-	add_theme_support( 'automatic-feed-links' );
 
 	/*
 	 * Switches default core markup for search form, comment form,
@@ -149,6 +140,7 @@ function guts_fonts_url() {
 	return $fonts_url;
 }
 
+
 /**
  * Enqueue scripts and styles for the front end.
  *
@@ -207,11 +199,25 @@ add_action( 'wp_enqueue_scripts', 'guts_scripts_styles' );
  * @since Guts 0.0.1
  */
 function guts_initialise_foundation(){ ?>
-	<script>
-		jQuery(document).foundation();
-  	</script>
+	<script>jQuery(document).foundation();</script>
 <?php }
 add_action( 'wp_footer', 'guts_initialise_foundation', 200 );
+
+/**
+ * Cleanup the Head
+ * @since Guts 0.0.1
+ */
+remove_action('wp_head', 'rsd_link');
+remove_action('wp_head', 'wp_generator');
+remove_action('wp_head', 'feed_links', 2);
+remove_action('wp_head', 'index_rel_link');
+remove_action('wp_head', 'wlwmanifest_link');
+remove_action('wp_head', 'feed_links_extra', 3);
+remove_action('wp_head', 'start_post_rel_link', 10, 0);
+remove_action('wp_head', 'parent_post_rel_link', 10, 0);
+remove_action('wp_head', 'adjacent_posts_rel_link', 10, 0);
+remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
+remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
 
 /**
  * Filter the page title.
