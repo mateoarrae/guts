@@ -596,3 +596,79 @@ class guts_top_bar_walker extends Walker_Nav_Menu {
     }
 
 }
+
+/**
+ * Template for comments and pingbacks.
+ *
+ * To override this walker in a child theme without modifying the comments template
+ * simply create your own wsuk_comment(), and that function will be used instead.
+ *
+ * Used as a callback by wp_list_comments() for displaying the comments.
+ *
+ * @since Guts 0.0.1
+ */
+ 
+
+if ( ! function_exists( 'guts_comment' ) ) :
+
+function guts_comment( $comment, $args, $depth ) {
+	$GLOBALS['comment'] = $comment;
+	switch ( $comment->comment_type ) :
+		case 'pingback' :
+		case 'trackback' :
+		// Display trackbacks differently than normal comments.
+	?>
+	<li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
+		<p><?php _e( 'Pingback:', 'websiteuk' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( '(Edit)', 'websiteuk' ), '<span class="edit-link">', '</span>' ); ?></p>
+	<?php
+			break;
+		default :
+		// Proceed with normal comments.
+		global $post;
+	?>
+	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
+		<article id="comment-<?php comment_ID(); ?>" class="comment">
+			<div class="row">
+				<div class="large-2 columns">
+					<?php echo get_avatar( $comment, 70 ); ?>
+				</div>
+				<div class="large-10 columns">
+					<?php if ( '0' == $comment->comment_approved ) : ?>
+						<span class="round label">
+							<?php _e( 'Your comment is awaiting moderation.', 'websiteuk' ); ?>
+						</span>
+					<?php endif; ?>
+		
+					<blockquote class="comment-content comment">
+						<?php comment_text(); ?>
+						<?php edit_comment_link( __( 'Edit', 'websiteuk' ), '<p class="edit-link">', '</p>' ); ?>
+						<cite class="comment-meta comment-author vcard">
+						<?php
+						printf( '<span class="fn">%1$s</span> %2$s',
+								get_comment_author_link(),
+								// If current post author is also comment author, make it known visually.
+								( $comment->user_id === $post->post_author ) ? __( '(Post author)', 'websiteuk' ) : ''
+							);
+						?>
+						<?php
+						printf( '<time datetime="%2$s">%3$s</time>',
+								esc_url( get_comment_link( $comment->comment_ID ) ),
+								get_comment_time( 'c' ),
+								/* translators: 1: date, 2: time */
+								sprintf( __( '%1$s at %2$s', 'websiteuk' ), get_comment_date(), get_comment_time() )
+							);
+						?>
+						</cite>
+					</blockquote><!-- .comment-content -->
+		
+					<div class="reply">
+						<?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply', 'websiteuk' ), 'after' => ' <span>&darr;</span>', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+					</div><!-- .reply -->
+				</div>
+			</div>
+		</article><!-- #comment-## -->
+	<?php
+		break;
+	endswitch; // end comment_type check
+}
+endif;
