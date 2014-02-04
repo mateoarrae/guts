@@ -164,7 +164,6 @@ function guts_scripts_styles() {
 	
 	// Include Foundation Core and all JavaScript plugins or load them individually below.
 	// Find out more at http://foundation.zurb.com/docs/javascript.html
-	// Should probably use zepto first to be true to Foundation and faster for mobile. not sure it plays nice with WP. Rose
 	wp_enqueue_script( 'foundation', get_template_directory_uri() . '/bower_components/foundation/js/foundation.min.js', array( 'jquery' ), '2014-02-01', true );
 	// wp_enqueue_script( 'foundation-abide', get_template_directory_uri() . '/bower_components/foundation/js/foundation/foundation.abide.js', array( 'jquery' ), '2014-02-01', true );
 	// wp_enqueue_script( 'foundation-alerts', get_template_directory_uri() . '/bower_components/foundation/js/foundation/foundation.alerts.js', array( 'jquery' ), '2014-02-01', true );
@@ -180,7 +179,7 @@ function guts_scripts_styles() {
 	// wp_enqueue_script( 'foundation-reveal', get_template_directory_uri() . '/bower_components/foundation/js/foundation/foundation.reveal.js', array( 'jquery' ), '2014-02-01', true );
 	// wp_enqueue_script( 'foundation-section', get_template_directory_uri() . '/bower_components/foundation/js/foundation/foundation.section.js', array( 'jquery' ), '2014-02-01', true );
 	// wp_enqueue_script( 'foundation-tooltips', get_template_directory_uri() . '/bower_components/foundation/js/foundation/foundation.tooltips.js', array( 'jquery' ), '2014-02-01', true );
-	// wp_enqueue_script( 'foundation-topbar', get_template_directory_uri() . '/bower_components/foundation/js/foundation/foundation.topbar.js', array( 'jquery' ), '2014-02-01', true );
+	wp_enqueue_script( 'foundation-topbar', get_template_directory_uri() . '/bower_components/foundation/js/foundation/foundation.topbar.js', array( 'jquery' ), '2014-02-01', true );
 
 	// Loads JavaScript file ready for Customisation.
 	// not sure we'll make use of this. Rose
