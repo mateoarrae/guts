@@ -7825,17 +7825,22 @@ th.hide-for-touch {
  * Find out more about SMACSS here http://smacss.com/
  *
  */
-/* line 9, ../sass/_module.scss */
+/* line 7, ../sass/_module.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Ubuntu";
+}
+
+/* line 12, ../sass/_module.scss */
 .vcard.author {
   padding: 0px;
   border: none;
 }
-/* line 12, ../sass/_module.scss */
+/* line 15, ../sass/_module.scss */
 .vcard.author .fn {
   font-size: inherit;
 }
 
-/* line 20, ../sass/_module.scss */
+/* line 23, ../sass/_module.scss */
 .widget ul {
   display: block;
   margin: 0;

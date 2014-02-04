@@ -3,7 +3,10 @@
  * Find out more about SMACSS here http://smacss.com/
  *
  */
- 
+
+#{headings(all)} {
+	font-family: "Ubuntu";
+}
 
 .vcard {
 	&.author {
