@@ -16,11 +16,13 @@ get_header(); ?>
 
 			<?php /* The loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
+			  <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 				<?php get_template_part( 'content', get_post_format() ); ?>
 				<?php guts_post_nav(); ?>
 				<?php comments_template(); ?>
-
+				
+			  </article>
 			<?php endwhile; ?>
 
 		</div><!-- #content -->

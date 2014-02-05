@@ -9,21 +9,22 @@
  * @since Guts 0.0.1
  */
 ?>
-
-    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
  
-        <?php if ( is_single() ) : ?>
-		<h3 class="entry-title"><?php the_title(); ?></h3>
-		<?php else : ?>
-		<h3 class="entry-title">
-			<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
-		</h3>
-		<?php endif; // is_single() ?>
-		
-        <dl class="sub-nav entry-meta">
-        	<?php guts_entry_meta(); ?>
-			<?php edit_post_link( __( 'Edit', 'guts' ), '<dd class="edit-link">', '</dd>' ); ?>
-		</dl>
+    <?php if ( is_single() ) : ?>
+	<h1 class="entry-title"><?php the_title(); ?></h1>
+	<?php else : ?>
+	<h2 class="entry-title">
+		<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
+	</h2>
+	<?php endif; // is_single() ?>
+	
+    <dl class="sub-nav entry-meta">
+    	<?php guts_entry_meta(); ?>
+		<?php if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) : ?>
+		<dd class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'guts' ), __( '1 Comment', 'guts' ), __( '% Comments', 'guts' ) ); ?></dd>
+		<?php endif; ?>
+		<?php edit_post_link( __( 'Edit', 'guts' ), '<dd class="edit-link">', '</dd>' ); ?>
+	</dl>
  
  
 	 <?php if ( is_search() ) : // Only display Excerpts for Search ?>
@@ -42,16 +43,4 @@
 		</div><!-- .entry-content -->
 	<?php endif; ?>
 	
-	
-	<footer class="entry-meta">
-		<?php if ( comments_open() && ! is_single() ) : ?>
-			<div class="comments-link">
-				<?php comments_popup_link( '<span class="leave-reply">' . __( 'Leave a comment', 'guts' ) . '</span>', __( 'One comment so far', 'guts' ), __( 'View all % comments', 'guts' ) ); ?>
-			</div><!-- .comments-link -->
-		<?php endif; // comments_open() ?>
-
-		<?php if ( is_single() && get_the_author_meta( 'description' ) && is_multi_author() ) : ?>
-			<?php //get_template_part( 'author-bio' ); ?>
-		<?php endif; ?>
-	</footer><!-- .entry-meta -->
-</article><!-- #post -->
+	<?php the_tags( '<footer class="entry-meta"><span class="tag-links">', '', '</span></footer>' ); ?>
