@@ -19,3 +19,7 @@
 		@include side-nav();
 	}
 }
+
+input[type="submit"] {
+	@include button($radius:true);
+}

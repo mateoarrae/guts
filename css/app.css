@@ -7869,6 +7869,40 @@ th.hide-for-touch {
   border-top-color: white;
 }
 
+/* line 23, ../sass/_module.scss */
+input[type="submit"] {
+  border-style: solid;
+  border-width: 0px;
+  cursor: pointer;
+  font-family: "Ubuntu", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  line-height: normal;
+  margin: 0 0 1.25rem;
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  padding-top: 1rem;
+  padding-right: 2rem;
+  padding-bottom: 1.0625rem;
+  padding-left: 2rem;
+  font-size: 1rem;
+  /*     @else                            { font-size: $padding - rem-calc(2); } */
+  background-color: #008cba;
+  border-color: #007095;
+  color: white;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+/* line 144, ../bower_components/foundation/scss/foundation/components/_buttons.scss */
+input[type="submit"]:hover, input[type="submit"]:focus {
+  background-color: #007095;
+}
+/* line 155, ../bower_components/foundation/scss/foundation/components/_buttons.scss */
+input[type="submit"]:hover, input[type="submit"]:focus {
+  color: white;
+}
+
 /*
  * State rules are ways to describe how our modules or layouts will look when in a particular state. 
  * Is it hidden or expanded? Is it active or inactive? They are about describing how a module or layout
