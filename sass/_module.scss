@@ -25,5 +25,5 @@
 }
 
 input[type="submit"] {
-	@include button($radius:true);
+	@include button( $radius: true, $is-input: true; );
 }
