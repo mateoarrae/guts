@@ -2783,7 +2783,7 @@ button, .button {
   border-width: 0px;
   cursor: pointer;
   font-family: "Ubuntu", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-  font-weight: normal;
+  font-weight: 300;
   line-height: normal;
   margin: 0 0 1.25rem;
   position: relative;
@@ -2806,7 +2806,7 @@ button, .button {
   padding-bottom: 1rem;
   -webkit-appearance: none;
   border: none;
-  font-weight: normal !important;
+  font-weight: 300 !important;
 }
 /* line 144, ../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button:hover, button:focus, .button:hover, .button:focus {
@@ -7880,7 +7880,7 @@ input[type="submit"] {
   border-width: 0px;
   cursor: pointer;
   font-family: "Ubuntu", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-  font-weight: normal;
+  font-weight: 300;
   line-height: normal;
   margin: 0 0 1.25rem;
   position: relative;
