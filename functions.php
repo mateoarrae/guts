@@ -540,12 +540,11 @@ add_filter( 'body_class', 'guts_body_class' );
  * @param WP_Customize_Manager $wp_customize Customizer object.
  * @return void
  */
-function guts_customize_register( $wp_customize ) {
+function guts_customise_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
-	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 }
-add_action( 'customize_register', 'guts_customize_register' );
+add_action( 'customize_register', 'guts_customise_register' );
 
 /**
  * Enqueue Javascript postMessage handlers for the Customizer.
