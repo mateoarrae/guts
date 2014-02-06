@@ -13,6 +13,8 @@ get_header(); ?>
 <div class="row">
 	<div class="large-8 columns">
 		<div id="content" class="l-site-content" role="main">
+		  <?php guts_yoast_breadcrumbs(); ?>
+		 
 
 			<?php /* The loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>

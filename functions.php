@@ -110,13 +110,13 @@ function guts_fonts_url() {
 	 * supported by Ubuntu, translate this to 'off'. Do not translate into your
 	 * own language.
 	 */
-	$ubuntu = _x( 'on', 'Ubuntu font: on or off', 'guts' );
+	$ubuntu = _x( 'off', 'Ubuntu font: on or off', 'guts' );
 
 	/* Translators: If there are characters in your language that are not
 	 * supported by Ubuntu Mono, translate this to 'off'. Do not translate into your
 	 * own language.
 	 */
-	$ubuntu_mono = _x( 'on', 'Ubuntu Mono font: on or off', 'guts' );
+	$ubuntu_mono = _x( 'off', 'Ubuntu Mono font: on or off', 'guts' );
 
 	if ( 'off' !== $contrail_one || 'off' !== $ubuntu || 'off' !== $ubuntu_mono ) {
 		$font_families = array();
@@ -174,21 +174,18 @@ function guts_scripts_styles() {
 	wp_enqueue_script( 'foundation-topbar', get_template_directory_uri() . '/bower_components/foundation/js/foundation/foundation.topbar.js', array( 'jquery' ), '2014-02-01', true );
 
 	// Loads JavaScript file ready for Customisation.
-	// not sure we'll make use of this. Rose
 	// wp_enqueue_script( 'guts-script', get_template_directory_uri() . '/js/guts.js', array( 'jquery' ), '2013-11-05', true );
 
 	// Add Contrail One, Ubuntu and Ubuntu Mono fonts, used in app.css.
 	wp_enqueue_style( 'guts-fonts', guts_fonts_url(), array(), null );
 
-	// Add Genericons font, used in app.css.
-	// Shall we use awesome icons? Rose
+	// Add Genericons font.
 	// wp_enqueue_style( 'genericons', get_template_directory_uri() . '/fonts/genericons.css', array(), '2.09' );
 
 	// Loads our main stylesheet.
 	wp_enqueue_style( 'guts-style', get_template_directory_uri() . '/css/app.css', array(), '2013-11-05' );
 
-	// Loads the Internet Explorer specific stylesheet.
-	// need to look at this last. Rose
+	// Loads an Internet Explorer specific stylesheet.
 	//wp_enqueue_style( 'guts-ie', get_template_directory_uri() . '/css/ie.css', array( 'guts-style' ), '2013-11-05' );
 	//wp_style_add_data( 'guts-ie', 'conditional', 'lt IE 9' );
 }
@@ -345,11 +342,40 @@ function guts_post_nav() {
 }
 endif;
 
+if ( ! function_exists( 'guts_yoast_breadcrumbs' ) ) :
+/**
+ * Customise Yoast Breadcrumb Output
+ *
+ * Removes all the extra prefixes and separators to make output cleaner 
+ * and more complient with Foundation. Keeps rich snippet info intact.
+ *
+ * @since Guts 0.0.1
+ */
+function guts_yoast_breadcrumbs() {
+	// Check Yoast Plugin is available
+	if ( function_exists('yoast_breadcrumb') ) {
+		$yoast_breadcrumbs = yoast_breadcrumb("","",false);
+		//Look for the links inside the Spans.
+		$pattern = "/<span typeof=\"v:Breadcrumb\">(.*?)<\/span>/";
+		preg_match_all( $pattern, $yoast_breadcrumbs, $breadcrumbs, PREG_PATTERN_ORDER);
+		//Open custom container
+		$guts_breadcrumbs = "";
+		$guts_breadcrumbs .= '<ul class="breadcrumbs" xmlns:v="http://rdf.data-vocabulary.org/#">';
+		//For each link found output a new list item
+		foreach($breadcrumbs[1] as $crumb){
+			$guts_breadcrumbs .= '<li typeof="v:Breadcrumb">'.$crumb.'</li>';
+		}
+		//Close container
+		$guts_breadcrumbs .= '</ul>';
+		//Output Customised Breadcrumbs
+		echo $guts_breadcrumbs;
+	}
+}
+endif;
+
 if ( ! function_exists( 'guts_entry_meta' ) ) :
 /**
  * Print HTML with meta information for current post: categories, tags, permalink, author, and date.
- *
- * Create your own guts_entry_meta() to override in a child theme.
  *
  * @since Guts 0.0.1
  *
@@ -361,9 +387,7 @@ function guts_entry_meta() {
 		echo '<dd class="featured-post">' . __( 'Sticky', 'guts' ) . '</dd>';
 
 	if ( ! has_post_format( 'link' ) && 'post' == get_post_type() )
-		echo '<dd class="date">';
 		guts_entry_date();
-		echo '</dd>';
 
 	// Translators: used between list items, there is a space after the comma.
 	$categories_list = get_the_category_list( __( ', ', 'guts' ) );
@@ -392,8 +416,6 @@ if ( ! function_exists( 'guts_entry_date' ) ) :
 /**
  * Print HTML with date information for current post.
  *
- * Create your own guts_entry_date() to override in a child theme.
- *
  * @since Guts 0.0.1
  *
  * @param boolean $echo (optional) Whether to echo the date. Default true.
@@ -405,7 +427,7 @@ function guts_entry_date( $echo = true ) {
 	else
 		$format_prefix = '%2$s';
 
-	$date = sprintf( '<span class="date"><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a></span>',
+	$date = sprintf( '<dd class="date"><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a></dd>',
 		esc_url( get_permalink() ),
 		esc_attr( sprintf( __( 'Permalink to %s', 'guts' ), the_title_attribute( 'echo=0' ) ) ),
 		esc_attr( get_the_date( 'c' ) ),
@@ -507,7 +529,7 @@ function guts_get_link_url() {
 /**
  * Extend the default WordPress body classes.
  *
- * Adds body classes to denote: Active widgets in the sidebar to change the layout and spacing.
+ * Adds body class to denote: Active widgets in the sidebar to change the layout and spacing.
  * You can add more custom body classes in this way to control layut and sytyles in your theme.
  *
  * @since Guts 0.0.1
