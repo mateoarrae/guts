@@ -7825,17 +7825,22 @@ th.hide-for-touch {
  * Find out more about SMACSS here http://smacss.com/
  *
  */
-/* line 8, ../sass/_module.scss */
+/* line 7, ../sass/_module.scss */
+.site-title {
+  font-size: 3.4375rem;
+}
+
+/* line 12, ../sass/_module.scss */
 .vcard.author {
   padding: 0px;
   border: none;
 }
-/* line 11, ../sass/_module.scss */
+/* line 15, ../sass/_module.scss */
 .vcard.author .fn {
   font-size: inherit;
 }
 
-/* line 18, ../sass/_module.scss */
+/* line 22, ../sass/_module.scss */
 .widget ul {
   display: block;
   margin: 0;
@@ -7869,7 +7874,7 @@ th.hide-for-touch {
   border-top-color: white;
 }
 
-/* line 23, ../sass/_module.scss */
+/* line 27, ../sass/_module.scss */
 input[type="submit"] {
   border-style: solid;
   border-width: 0px;
