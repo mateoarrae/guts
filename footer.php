@@ -23,9 +23,11 @@
       </div>
       <hr />
       <div class="row">
-        <div class="large-12 columns">
-        	<?php //do_action( 'guts_credits' ); ?>
+        <div class="large-8 columns">
         	<p><a href="<?php echo esc_url( __( 'http://wordpress.org/', 'guts' ) ); ?>" title="<?php esc_attr_e( 'Semantic Personal Publishing Platform', 'guts' ); ?>"><?php printf( __( 'Proudly powered by %s', 'guts' ), 'WordPress' ); ?></a></p>
+        </div>
+        <div class="large-3 offset-1 column">
+        	<p><?php printf( __('Created by %s', 'guts'), 'Rose Mckeon'); ?></p>
         </div>
       </div>
 
