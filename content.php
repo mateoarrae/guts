@@ -9,7 +9,7 @@
  * @since Guts 0.0.1
  */
 ?>
- 
+ <header class="entry-header">
     <?php if ( is_single() ) : ?>
 	<h1 class="entry-title"><?php the_title(); ?></h1>
 	<?php else : ?>
@@ -25,7 +25,7 @@
 		<?php endif; ?>
 		<?php edit_post_link( __( 'Edit', 'guts' ), '<dd class="edit-link">', '</dd>' ); ?>
 	</dl>
- 
+ </header>
  
 	 <?php if ( is_search() ) : // Only display Excerpts for Search ?>
 		<div class="entry-summary">
