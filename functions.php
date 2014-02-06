@@ -87,59 +87,6 @@ function guts_setup() {
 }
 add_action( 'after_setup_theme', 'guts_setup' );
 
-/**
- * Return the Google font stylesheet URL, if available.
- *
- * The use of Contrail One, Ubuntu and Ununtu Mono by default is localized. For languages
- * that use characters not supported by the font, the font can be disabled.
- *
- * @since Guts 0.0.1
- *
- * @return string Font stylesheet or empty string if disabled.
- */
-function guts_fonts_url() {
-	$fonts_url = '';
-
-	/* Translators: If there are characters in your language that are not
-	 * supported by Contrail One, translate this to 'off'. Do not translate
-	 * into your own language.
-	 */
-	$contrail_one = _x( 'off', 'Contrail One font: on or off', 'guts' );
-
-	/* Translators: If there are characters in your language that are not
-	 * supported by Ubuntu, translate this to 'off'. Do not translate into your
-	 * own language.
-	 */
-	$ubuntu = _x( 'on', 'Ubuntu font: on or off', 'guts' );
-
-	/* Translators: If there are characters in your language that are not
-	 * supported by Ubuntu Mono, translate this to 'off'. Do not translate into your
-	 * own language.
-	 */
-	$ubuntu_mono = _x( 'off', 'Ubuntu Mono font: on or off', 'guts' );
-
-	if ( 'off' !== $contrail_one || 'off' !== $ubuntu || 'off' !== $ubuntu_mono ) {
-		$font_families = array();
-
-		if ( 'off' !== $contrail_one )
-			$font_families[] = 'Contrail+One';
-			
-		if ( 'off' !== $ubuntu )
-			$font_families[] = 'Ubuntu:300,500,300italic,500italic';
-
-		if ( 'off' !== $ubuntu_mono )
-			$font_families[] = 'Ubuntu+Mono';
-
-		$query_args = array(
-			'family' => urlencode( implode( '|', $font_families ) ),
-			'subset' => urlencode( 'latin,latin-ext' ),
-		);
-		$fonts_url = add_query_arg( $query_args, "//fonts.googleapis.com/css" );
-	}
-
-	return $fonts_url;
-}
-
 
 /**
  * Enqueue scripts and styles for the front end.
@@ -176,8 +123,8 @@ function guts_scripts_styles() {
 	// Loads JavaScript file ready for Customisation.
 	// wp_enqueue_script( 'guts-script', get_template_directory_uri() . '/js/guts.js', array( 'jquery' ), '2013-11-05', true );
 
-	// Add Contrail One, Ubuntu and Ubuntu Mono fonts, used in app.css.
-	wp_enqueue_style( 'guts-fonts', guts_fonts_url(), array(), null );
+	// Add Ubuntu font, used in app.css.
+	wp_enqueue_style( 'guts-fonts', 'http://fonts.googleapis.com/css?family=Ubuntu:300,500,300italic,500italic&subset=latin,latin-ext', array(), null );
 
 	// Add Genericons font.
 	// wp_enqueue_style( 'genericons', get_template_directory_uri() . '/fonts/genericons.css', array(), '2.09' );
