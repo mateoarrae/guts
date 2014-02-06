@@ -227,38 +227,19 @@ function guts_widgets_init() {
 }
 add_action( 'widgets_init', 'guts_widgets_init' );
 
-if ( ! function_exists( 'guts_paging_nav' ) ) :
 /**
- * Display navigation to next/previous set of posts when applicable.
+ * Adds a custom class to anchor markup output by previous_post_link() and next_post)link()
  *
  * @since Guts 0.0.1
  *
  * @return void
  */
-function guts_paging_nav() {
-	global $wp_query;
-
-	// Don't print empty markup if there's only one page.
-	if ( $wp_query->max_num_pages < 2 )
-		return;
-	?>
-	<nav class="navigation paging-navigation" role="navigation">
-		<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'guts' ); ?></h1>
-		<div class="nav-links">
-
-			<?php if ( get_next_posts_link() ) : ?>
-			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'guts' ) ); ?></div>
-			<?php endif; ?>
-
-			<?php if ( get_previous_posts_link() ) : ?>
-			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'guts' ) ); ?></div>
-			<?php endif; ?>
-
-		</div><!-- .nav-links -->
-	</nav><!-- .navigation -->
-	<?php
+function guts_add_button_class($format){
+  $format = str_replace('href=', 'class="small button" href=', $format);
+  return $format;
 }
-endif;
+add_filter('next_post_link', 'guts_add_button_class');
+add_filter('previous_post_link', 'guts_add_button_class');
 
 if ( ! function_exists( 'guts_post_nav' ) ) :
 /**
@@ -278,13 +259,11 @@ function guts_post_nav() {
 	if ( ! $next && ! $previous )
 		return;
 	?>
-	<nav class="navigation post-navigation" role="navigation">
-		<h4 class="screen-reader-text"><?php _e( 'Other Posts', 'guts' ); ?></h4>
-		<div class="nav-links">
-			<?php previous_post_link( '%link', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'guts' ) ); ?>
-			<?php next_post_link( '%link', _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link', 'guts' ) ); ?>
-		</div><!-- .nav-links -->
-	</nav><!-- .navigation -->
+	<h4 class="screen-reader-text"><?php _e( 'Other Posts', 'guts' ); ?></h4>
+	<ul class="button-group radius post-navigation" role="navigation">
+	  <li><?php previous_post_link( '%link', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'guts' ) ); ?></li>
+	  <li><?php next_post_link( '%link', _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link', 'guts' ) ); ?></li>
+	</ul>
 	<?php
 }
 endif;
@@ -302,18 +281,21 @@ function guts_yoast_breadcrumbs() {
 	// Check Yoast Plugin is available
 	if ( function_exists('yoast_breadcrumb') ) {
 		$yoast_breadcrumbs = yoast_breadcrumb("","",false);
+		
 		//Look for the links inside the Spans.
 		$pattern = "/<span typeof=\"v:Breadcrumb\">(.*?)<\/span>/";
 		preg_match_all( $pattern, $yoast_breadcrumbs, $breadcrumbs, PREG_PATTERN_ORDER);
 		//Open custom container
 		$guts_breadcrumbs = "";
 		$guts_breadcrumbs .= '<ul class="breadcrumbs" xmlns:v="http://rdf.data-vocabulary.org/#">';
+		
 		//For each link found output a new list item
 		foreach($breadcrumbs[1] as $crumb){
 			$guts_breadcrumbs .= '<li typeof="v:Breadcrumb">'.$crumb.'</li>';
 		}
 		//Close container
 		$guts_breadcrumbs .= '</ul>';
+		
 		//Output Customised Breadcrumbs
 		echo $guts_breadcrumbs;
 	}
