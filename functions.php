@@ -104,13 +104,13 @@ function guts_fonts_url() {
 	 * supported by Contrail One, translate this to 'off'. Do not translate
 	 * into your own language.
 	 */
-	$contrail_one = _x( 'on', 'Contrail One font: on or off', 'guts' );
+	$contrail_one = _x( 'off', 'Contrail One font: on or off', 'guts' );
 
 	/* Translators: If there are characters in your language that are not
 	 * supported by Ubuntu, translate this to 'off'. Do not translate into your
 	 * own language.
 	 */
-	$ubuntu = _x( 'off', 'Ubuntu font: on or off', 'guts' );
+	$ubuntu = _x( 'on', 'Ubuntu font: on or off', 'guts' );
 
 	/* Translators: If there are characters in your language that are not
 	 * supported by Ubuntu Mono, translate this to 'off'. Do not translate into your
@@ -125,7 +125,7 @@ function guts_fonts_url() {
 			$font_families[] = 'Contrail+One';
 			
 		if ( 'off' !== $ubuntu )
-			$font_families[] = 'Ubuntu:400,700,400italic,700italic';
+			$font_families[] = 'Ubuntu:300,500,300italic,500italic';
 
 		if ( 'off' !== $ubuntu_mono )
 			$font_families[] = 'Ubuntu+Mono';

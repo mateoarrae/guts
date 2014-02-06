@@ -464,7 +464,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Ubuntu", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-  font-weight: normal;
+  font-weight: 300;
   font-style: normal;
   line-height: 1;
   position: relative;
@@ -5211,7 +5211,7 @@ ul.pagination li {
 /* line 63, ../bower_components/foundation/scss/foundation/components/_side-nav.scss */
 .side-nav li.active > a:first-child {
   color: #4d4d4d;
-  font-weight: normal;
+  font-weight: 300;
   font-family: "Ubuntu", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 }
 /* line 69, ../bower_components/foundation/scss/foundation/components/_side-nav.scss */
@@ -5382,7 +5382,7 @@ ul.pagination li {
   margin-left: 1rem;
   margin-bottom: 0.625rem;
   font-family: "Ubuntu", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-  font-weight: normal;
+  font-weight: 300;
   font-size: 0.875rem;
   color: #999999;
 }
@@ -6049,7 +6049,7 @@ meta.foundation-mq-topbar {
   color: white;
   text-transform: uppercase;
   font-size: 0.8125rem;
-  font-weight: bold;
+  font-weight: 300;
   position: relative;
   display: block;
   padding: 0 15px;
@@ -6138,7 +6138,7 @@ meta.foundation-mq-topbar {
   padding-left: 15px;
   font-family: "Ubuntu", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   font-size: 0.8125rem;
-  font-weight: normal;
+  font-weight: 300;
   background: #333333;
 }
 /* line 295, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
@@ -6241,7 +6241,7 @@ meta.foundation-mq-topbar {
 }
 /* line 384, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar-section .dropdown li a.parent-link {
-  font-weight: normal;
+  font-weight: 300;
 }
 /* line 389, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar-section .dropdown li.title h5 {
@@ -6267,7 +6267,7 @@ meta.foundation-mq-topbar {
   margin-bottom: 0;
   text-transform: uppercase;
   color: #777777;
-  font-weight: bold;
+  font-weight: 300;
   font-size: 0.625rem;
 }
 
@@ -6515,7 +6515,7 @@ a img {
 /* line 163, ../bower_components/foundation/scss/foundation/components/_type.scss */
 p {
   font-family: inherit;
-  font-weight: normal;
+  font-weight: 300;
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 1.25rem;
@@ -7862,7 +7862,7 @@ th.hide-for-touch {
 /* line 63, ../bower_components/foundation/scss/foundation/components/_side-nav.scss */
 .widget ul li.active > a:first-child {
   color: #4d4d4d;
-  font-weight: normal;
+  font-weight: 300;
   font-family: "Ubuntu", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 }
 /* line 69, ../bower_components/foundation/scss/foundation/components/_side-nav.scss */
