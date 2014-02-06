@@ -17,33 +17,32 @@ if ( post_password_required() )
 	return;
 ?>
 
-<div id="comments" class="l-comments-area">
+<section id="comments" class="l-comments-container">
 
 	<?php if ( have_comments() ) : ?>
-		<h2 class="comments-title">
+		<hr />
+		<h3 class="comments-title">
 			<?php
 				printf( _nx( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'guts' ),
 					number_format_i18n( get_comments_number() ), '<span>' . get_the_title() . '</span>' );
 			?>
-		</h2>
-
-		<ol class="comment-list">
+		</h3>
+		<div class="comments-list">
 			<?php
 				wp_list_comments( array(
-					'callback'	  => 'guts_comment',
-					'style'       => 'ol',
+					'walker'	  => new guts_walker_comment(),
+					'style'       => 'div',
 					'short_ping'  => true,
 					'avatar_size' => 74,
 				) );
 			?>
-		</ol><!-- .comment-list -->
-
+		</div>
 		<?php
 			// Are there comments to navigate through?
 			if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) :
 		?>
 		<nav class="navigation comment-navigation" role="navigation">
-			<h1 class="screen-reader-text section-heading"><?php _e( 'Comment navigation', 'guts' ); ?></h1>
+			<h4 class="screen-reader-text section-heading"><?php _e( 'Comment navigation', 'guts' ); ?></h4>
 			<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'guts' ) ); ?></div>
 			<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'guts' ) ); ?></div>
 		</nav><!-- .comment-navigation -->
@@ -57,4 +56,4 @@ if ( post_password_required() )
 
 	<?php comment_form(); ?>
 
-</div><!-- #comments -->
+</section>

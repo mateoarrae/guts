@@ -335,12 +335,10 @@ function guts_post_nav() {
 		return;
 	?>
 	<nav class="navigation post-navigation" role="navigation">
-		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'guts' ); ?></h1>
+		<h4 class="screen-reader-text"><?php _e( 'Other Posts', 'guts' ); ?></h4>
 		<div class="nav-links">
-
 			<?php previous_post_link( '%link', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'guts' ) ); ?>
 			<?php next_post_link( '%link', _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link', 'guts' ) ); ?>
-
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->
 	<?php
@@ -602,78 +600,59 @@ class guts_top_bar_walker extends Walker_Nav_Menu {
 
 }
 
+
 /**
- * Template for comments and pingbacks.
- *
- * To override this walker in a child theme without modifying the comments template
- * simply create your own wsuk_comment(), and that function will be used instead.
- *
- * Used as a callback by wp_list_comments() for displaying the comments.
+ * Comments Walker
+ * Customises comments markup output by wp_list_comments()
+ * Nests comments as sub articles of the main article.
+ * http://html5doctor.com/lets-talk-about-semantics/
  *
  * @since Guts 0.0.1
  */
+class guts_walker_comment extends Walker_Comment {
+     
+    // init classwide variables
+    var $tree_type = 'comment';
+    var $db_fields = array( 'parent' => 'comment_parent', 'id' => 'comment_ID' );
+      
+    function start_el( &$output, $comment, $depth, $args, $id = 0 ) {
+        $depth++;
+        $GLOBALS['comment_depth'] = $depth;
+        $GLOBALS['comment'] = $comment; 
+        $parent_class = ( empty( $args['panel has_children'] ) ? 'panel' : 'panel parent' ); ?>
+         
+        <article <?php comment_class( $parent_class ); ?> id="comment-<?php comment_ID() ?>">
+          <div class="row">
+            <div class="small-2 column">
+	          <header class="comment-meta comment-meta-data">
+	            <div class="comment-author vcard author">
+		          <?php echo ( $args['avatar_size'] != 0 ? get_avatar( $comment, $args['avatar_size'] ) :'' ); ?>
+	            </div>
+	          </header>
+            </div>
+            <div class="small-10 column">
+            
+	          <section id="comment-content-<?php comment_ID(); ?>" class="comment-content">
+	            <?php if( !$comment->comment_approved ) : ?>
+	              <em class="comment-awaiting-moderation">Your comment is awaiting moderation.</em>
+	            <?php else: comment_text(); ?>
+	            <?php endif; ?>
+	          </section>
+	 
+	          <footer class="comment-meta comment-meta-data">
+	            <dl class="sub-nav">
+	              <dd class="comment-author author vcard"><cite class="fn n author-name" rel="author">- <?php echo get_comment_author_link(); ?></cite></dd>
+	              <dd class="date"><a href="<?php echo htmlspecialchars( get_comment_link( get_comment_ID() ) ) ?>"><?php comment_date(); ?> at <?php comment_time(); ?></a></dd>
+	              <?php edit_comment_link(__( 'Edit', 'guts' ), '<dd class="edit-link">', '</dd>' ); ?>
+	            </dl>
+	          </footer>
+	          
+            </div>
+          </div>
+    <?php }
  
-
-if ( ! function_exists( 'guts_comment' ) ) :
-
-function guts_comment( $comment, $args, $depth ) {
-	$GLOBALS['comment'] = $comment;
-	switch ( $comment->comment_type ) :
-		case 'pingback' :
-		case 'trackback' :
-		// Display trackbacks differently than normal comments.
-	?>
-	<li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
-		<p><?php _e( 'Pingback:', 'websiteuk' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( '(Edit)', 'websiteuk' ), '<span class="edit-link">', '</span>' ); ?></p>
-	<?php
-			break;
-		default :
-		// Proceed with normal comments.
-		global $post;
-	?>
-	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
-		<article id="comment-<?php comment_ID(); ?>" class="comment">
-			<div class="row">
-				<div class="large-2 columns">
-					<?php echo get_avatar( $comment, 70 ); ?>
-				</div>
-				<div class="large-10 columns">
-					<?php if ( '0' == $comment->comment_approved ) : ?>
-						<span class="round label">
-							<?php _e( 'Your comment is awaiting moderation.', 'websiteuk' ); ?>
-						</span>
-					<?php endif; ?>
-		
-					<blockquote class="comment-content comment">
-						<?php comment_text(); ?>
-						<?php edit_comment_link( __( 'Edit', 'websiteuk' ), '<p class="edit-link">', '</p>' ); ?>
-						<cite class="comment-meta comment-author vcard">
-						<?php
-						printf( '<span class="fn">%1$s</span> %2$s',
-								get_comment_author_link(),
-								// If current post author is also comment author, make it known visually.
-								( $comment->user_id === $post->post_author ) ? __( '(Post author)', 'websiteuk' ) : ''
-							);
-						?>
-						<?php
-						printf( '<time datetime="%2$s">%3$s</time>',
-								esc_url( get_comment_link( $comment->comment_ID ) ),
-								get_comment_time( 'c' ),
-								/* translators: 1: date, 2: time */
-								sprintf( __( '%1$s at %2$s', 'websiteuk' ), get_comment_date(), get_comment_time() )
-							);
-						?>
-						</cite>
-					</blockquote><!-- .comment-content -->
-		
-					<div class="reply">
-						<?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply', 'websiteuk' ), 'after' => ' <span>&darr;</span>', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
-					</div><!-- .reply -->
-				</div>
-			</div>
-		</article><!-- #comment-## -->
-	<?php
-		break;
-	endswitch; // end comment_type check
+    function end_el(&$output, $comment, $depth = 0, $args = array() ) { ?>
+        </article>
+    <?php }
+    
 }
-endif;
