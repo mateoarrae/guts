@@ -31,7 +31,7 @@ get_header(); ?>
 				  </article>
 				<?php endwhile; ?>
 	
-				<?php guts_paging_nav(); ?>
+				<?php guts_post_nav(); ?>
 	
 			<?php else : ?>
 				<?php get_template_part( 'content', 'none' ); ?>
