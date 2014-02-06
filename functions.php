@@ -507,10 +507,8 @@ function guts_get_link_url() {
 /**
  * Extend the default WordPress body classes.
  *
- * Adds body classes to denote:
- * 1. Single or multiple authors.
- * 2. Active widgets in the sidebar to change the layout and spacing.
- * 3. When avatars are disabled in discussion settings.
+ * Adds body classes to denote: Active widgets in the sidebar to change the layout and spacing.
+ * You can add more custom body classes in this way to control layut and sytyles in your theme.
  *
  * @since Guts 0.0.1
  *
@@ -518,14 +516,9 @@ function guts_get_link_url() {
  * @return array The filtered body class list.
  */
 function guts_body_class( $classes ) {
-	if ( ! is_multi_author() )
-		$classes[] = 'single-author';
 
 	if ( is_active_sidebar( 'sidebar-1' ) && ! is_attachment() && ! is_404() )
 		$classes[] = 'sidebar';
-
-	if ( ! get_option( 'show_avatars' ) )
-		$classes[] = 'no-avatars';
 
 	return $classes;
 }
