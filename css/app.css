@@ -7913,6 +7913,26 @@ input[type="submit"]:hover, input[type="submit"]:focus {
   color: white;
 }
 
+/* line 32, ../sass/_module.scss */
+.tag-links a {
+  font-weight: normal;
+  font-family: "Ubuntu", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1;
+  white-space: nowrap;
+  display: inline-block;
+  position: relative;
+  margin-bottom: inherit;
+  padding: 0.25rem 0.5rem 0.375rem;
+  font-size: 0.6875rem;
+  background-color: #e7e7e7;
+  color: #333333;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  margin: 0 10px 0 0;
+}
+
 /*
  * State rules are ways to describe how our modules or layouts will look when in a particular state. 
  * Is it hidden or expanded? Is it active or inactive? They are about describing how a module or layout
@@ -7920,4 +7940,8 @@ input[type="submit"]:hover, input[type="submit"]:focus {
  * in different views like the home page or the inside page.
  * Find out more about SMACSS here http://smacss.com/
  *
+ */
+/*
+ * These are all the styles that WordPress requires by default and should be included in every theme.
+ * Find out more here: http://codex.wordpress.org/Theme_Review
  */
