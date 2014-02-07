@@ -227,6 +227,19 @@ function guts_widgets_init() {
 }
 add_action( 'widgets_init', 'guts_widgets_init' );
 
+if ( !function_exists( 'guts_browse_happy' ) ) :
+/**
+ * Outputs Boilerplate browsehappy and chromeframe links for users on legacy browsers
+ * 
+ * @since Guts 0.0.1
+ */
+function guts_browse_happy() { ?>
+<!--[if lt IE 7]>
+  <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
+<?php }
+endif;
+
 /**
  * Adds Foundation small button class to anchor markup output by previous_post_link() and next_post)link()
  *
