@@ -228,7 +228,7 @@ function guts_widgets_init() {
 add_action( 'widgets_init', 'guts_widgets_init' );
 
 /**
- * Adds a custom class to anchor markup output by previous_post_link() and next_post)link()
+ * Adds Foundation small button class to anchor markup output by previous_post_link() and next_post)link()
  *
  * @since Guts 0.0.1
  *
@@ -599,6 +599,20 @@ class guts_walker_comment extends Walker_Comment {
     <?php }
     
 }
+
+/**
+ * Adds Foundation thumbnail class to anchor markup output by wp_get_attachment_link()
+ *
+ * @since Guts 0.0.1
+ *
+ * @return void
+ */
+function guts_add_th_class($format){
+  $format = str_replace('href=', 'class="th" href=', $format);
+  return $format;
+}
+add_filter('wp_get_attachment_link', 'guts_add_th_class');
+
 
 /**
  * Customises the default gallery markup to use Foundation block-grids
