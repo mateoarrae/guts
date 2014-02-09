@@ -55,6 +55,13 @@ function guts_setup() {
 	 * template files.
 	 */
 	load_theme_textdomain( 'guts', get_template_directory() . '/languages' );
+	
+	
+	/**
+	 * Adds Required Support for RSS feed links to <head> for posts and comments.
+	 * These can be optionally cleaned up later
+	 */
+	add_theme_support( 'automatic-feed-links' );
 
 	/*
 	 * Switches default core markup for search form, comment form,
@@ -148,7 +155,11 @@ function guts_initialise_foundation(){ ?>
 add_action( 'wp_footer', 'guts_initialise_foundation', 200 );
 
 /**
- * Cleanup the Head
+ * Clean up the Head
+ *
+ * Removes unecessary actions from wp_head
+ * Comment out below as required
+ *
  * @since Guts 0.0.1
  */
 remove_action('wp_head', 'rsd_link');
