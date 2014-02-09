@@ -23,6 +23,13 @@
  * @since Guts 0.0.1
  */
 
+/*
+ * Set up the required content width value based on the theme's design.
+ * You can Adust this later for specific post types or page templates
+ */
+if ( ! isset( $content_width ) )
+	$content_width = 637;
+
 /**
  * Guts only works in WordPress 3.6 or later.
  */
@@ -249,6 +256,74 @@ function guts_browse_happy() { ?>
   <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
 <![endif]-->
 <?php }
+endif;
+
+if ( ! function_exists( 'guts_paging_nav' ) ) :
+/**
+ * Display Foundation pagination navigation to next/previous set of posts when applicable.
+ *
+ * @since Guts 0.0.1
+ *
+ * @return void
+ */
+function guts_paging_nav() {
+	// Don't print empty markup if there's only one page.
+	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
+		return;
+	}
+
+	$paged        = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1;
+	$pagenum_link = html_entity_decode( get_pagenum_link() );
+	$query_args   = array();
+	$url_parts    = explode( '?', $pagenum_link );
+
+	if ( isset( $url_parts[1] ) ) {
+		wp_parse_str( $url_parts[1], $query_args );
+	}
+
+	$pagenum_link = remove_query_arg( array_keys( $query_args ), $pagenum_link );
+	$pagenum_link = trailingslashit( $pagenum_link ) . '%_%';
+
+	$format  = $GLOBALS['wp_rewrite']->using_index_permalinks() && ! strpos( $pagenum_link, 'index.php' ) ? 'index.php/' : '';
+	$format .= $GLOBALS['wp_rewrite']->using_permalinks() ? user_trailingslashit( 'page/%#%', 'paged' ) : '?paged=%#%';
+
+	// Set up paginated links.
+	$wp_links = paginate_links( array(
+		'base'     => $pagenum_link,
+		'format'   => $format,
+		'total'    => $GLOBALS['wp_query']->max_num_pages,
+		'current'  => $paged,
+		'mid_size' => 1,
+		'add_args' => array_map( 'urlencode', $query_args ),
+		'prev_text' => __( '&laquo;', 'guts' ),
+		'next_text' => __( '&raquo;', 'guts' ),
+	) );
+
+	if ( $wp_links ) :
+	
+		// Split the link string at the line breaks and build array
+		$links = preg_split("/\n/", $wp_links);
+	
+	?>
+	<div class="navigation paging-navigation pagination-centered" role="navigation">
+		<ul class="pagination loop-pagination">
+			<?php 
+			foreach ( $links as $link ) :
+				// Foreach link in the array check for current page span, next and previous links - then output list items appropriately
+				if ( preg_match( "/<span(.*?)<\/span>/", $link ) ) :
+					echo '<li class="current">'.preg_replace("/span/", "a", $link)."</li>\n\t\t\t";
+				elseif( preg_match( "/next|prev/", $link ) ) :
+					echo '<li class="arrow">'.$link."</li>\n\t\t\t";
+				else:
+					echo "<li>$link</li>\n\t\t\t";
+				endif;
+			endforeach; 
+			?>
+		</ul>
+	</div>
+	<?php
+	endif;
+}
 endif;
 
 /**
