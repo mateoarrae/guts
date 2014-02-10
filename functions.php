@@ -750,19 +750,22 @@ function guts_gallery_shortcode($attr) {
 		if ( !$attr['orderby'] )
 			unset( $attr['orderby'] );
 	}
-
+	
+	// Setup shortcode attributes and add additional Guts tags
 	extract(shortcode_atts(array(
-		'order'      => 'ASC',
-		'orderby'    => 'menu_order ID',
-		'id'         => $post ? $post->ID : 0,
-		'itemtag'    => 'li',
-		'icontag'    => 'div',
-		'captiontag' => 'span',
-		'columns'    => 3,
-		'size'       => 'thumbnail',
-		'include'    => '',
-		'exclude'    => '',
-		'link'       => ''
+		'order'      		=> 'ASC',
+		'orderby'    		=> 'menu_order ID',
+		'id'         		=> $post ? $post->ID : 0,
+		'itemtag'    		=> 'li',
+		'imgcontainertag'   => 'fig',
+		'icontag'    		=> 'div',
+		'captiontag' 		=> 'figcaption',
+		'labeltag' 			=> 'span',
+		'columns'   		=> 3,
+		'size'       		=> 'thumbnail',
+		'include'    		=> '',
+		'exclude'    		=> '',
+		'link'       		=> ''
 	), $attr, 'gallery'));
 
 	$id = intval($id);
@@ -792,17 +795,27 @@ function guts_gallery_shortcode($attr) {
 		return $output;
 	}
 
+	// Make sure the tags specified contain only valid characters
 	$itemtag = tag_escape($itemtag);
+	$imgcontainertag = tag_escape($imgcontainertag);
 	$captiontag = tag_escape($captiontag);
+	$labeltag = tag_escape($labeltag);
 	$icontag = tag_escape($icontag);
 	$valid_tags = wp_kses_allowed_html( 'post' );
+	
+	// Set default tags if none already given
 	if ( ! isset( $valid_tags[ $itemtag ] ) )
 		$itemtag = 'li';
+	if ( ! isset( $valid_tags[ $imgcontainertag ] ) )
+		$imgcontainertag = 'fig';
 	if ( ! isset( $valid_tags[ $captiontag ] ) )
-		$captiontag = 'span';
+		$captiontag = 'figcaption';
+	if ( ! isset( $valid_tags[ $labeltag ] ) )
+		$labeltag = 'span';
 	if ( ! isset( $valid_tags[ $icontag ] ) )
 		$icontag = 'div';
 
+	// Get column number specified by user
 	$columns = intval($columns);
 	$itemwidth = $columns > 0 ? floor(100/$columns) : 100;
 
@@ -827,17 +840,16 @@ function guts_gallery_shortcode($attr) {
 		if ( isset( $image_meta['height'], $image_meta['width'] ) )
 			$orientation = ( $image_meta['height'] > $image_meta['width'] ) ? 'portrait' : 'landscape';
 
+		// Output markup
 		$output .= "<{$itemtag} class='gallery-item'>";
-		$output .= "
-			<{$icontag} class='gallery-icon {$orientation}'>
-				$image_output
-			</{$icontag}>";
-		if ( $captiontag && trim($attachment->post_excerpt) ) {
-			$output .= "
-				<{$captiontag} class='wp-caption-text gallery-caption label secondary radius'>
-				" . wptexturize($attachment->post_excerpt) . "
-				</{$captiontag}>";
-		}
+		$output .= "<{$imgcontainertag}>";
+		$output .= "<{$icontag} class='gallery-icon {$orientation}'>$image_output</{$icontag}>";
+		
+		if ( $captiontag && trim($attachment->post_excerpt) ) :
+			$output .= "<{$captiontag} class='wp-caption-text gallery-caption'><{$labeltag} class='label'>" . wptexturize($attachment->post_excerpt) . "</{$labeltag}></{$captiontag}>";
+		endif;
+		
+		$output .= "</{$imgcontainertag}>";
 		$output .= "</{$itemtag}>";
 	}
 
