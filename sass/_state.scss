@@ -6,3 +6,32 @@
  * Find out more about SMACSS here http://smacss.com/
  *
  */
+
+.side-nav,
+.widget ul {
+	a:hover,
+	a:active {
+		color: $side-nav-link-color-active;
+	}
+}
+
+.tag-links {
+	a:hover,
+	a:active {
+		background: darken( $secondary-color, 5% );
+	}
+}
+
+@media #{$medium-up} {
+
+	blockquote {
+		&.alignright,
+		&.alignleft {
+			width: 50%;
+		}
+		&.alignright {
+			margin: $alignright-margin;
+		}
+	}
+
+}
