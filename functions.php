@@ -707,7 +707,7 @@ class guts_walker_comment extends Walker_Comment {
  * @return void
  */
 function guts_add_th_class($format){
-  $format = str_replace('href=', 'class="th" href=', $format);
+  $format = str_replace('<a', '<a class="th"', $format);
   return $format;
 }
 add_filter('wp_get_attachment_link', 'guts_add_th_class');
@@ -846,3 +846,58 @@ function guts_gallery_shortcode($attr) {
 
 	return $output;
 }
+
+/**
+ * Customises the default caption shortcode markup
+ * Applies html5 elements and Foundation Thumbnails
+ *
+ * @since Guts 0.0.1
+ *
+ * @param array $output to return, $attr Attributes to apply, $content of the original string
+ * @return string HTML content to display caption
+ */
+function guts_caption( $output, $attr, $content ) {
+
+	// Leave feed captions alone
+	if ( is_feed() )
+		return $output;
+
+	// Setup default args
+	$defaults = array(
+		'id' => '',
+		'align' => 'alignnone',
+		'width' => '',
+		'caption' => ''
+	);
+
+	// Merge default args with user changes.
+	$attr = shortcode_atts( $defaults, $attr );
+
+	// Add Foundation Thumbnail classs to link
+	$content = str_replace('<a', '<a class="th"', $content);
+	
+	// If the width is less than 1 or there is no caption, return the content wrapped between the [caption]< tags.
+	if ( 1 > $attr['width'] || empty( $attr['caption'] ) )
+		return $content;
+
+	// Set up the attributes for the caption container.
+	$attributes = ( !empty( $attr['id'] ) ? ' id="' . esc_attr( $attr['id'] ) . '"' : '' );
+	$attributes .= ' class="wp-caption ' . esc_attr( $attr['align'] ) . '"';
+	$attributes .= ' style="width: ' . esc_attr( $attr['width'] ) . 'px"';
+
+	// Open container.
+	$output = '<fig' . $attributes .'>';
+
+	// Allow shortcodes for the content the caption was created for.
+	$output .= do_shortcode( $content );
+
+	// Append the caption text.
+	$output .= '<figcaption class="wp-caption-text"><span class="label">' . $attr['caption'] . '</span></figcaption>';
+
+	// Close the caption container.
+	$output .= '</fig>';
+
+	// Return customised caption.
+	return $output;
+}
+add_filter( 'img_caption_shortcode', 'guts_caption', 10, 3 );
