@@ -24,13 +24,26 @@
 
 @media #{$medium-up} {
 
-	blockquote {
+	blockquote,
+	.wp-caption {
 		&.alignright,
 		&.alignleft {
-			width: 50%;
+			width: 47%;
 		}
 		&.alignright {
 			margin: $alignright-margin;
+		}
+	}
+	
+	img,
+	.wp-caption {
+		&.alignleft {
+			margin: $alignleft-margin;
+			width: 47%;
+		}
+		&.alignright {
+			margin: $alignright-margin;
+			width: 47%;
 		}
 	}
 

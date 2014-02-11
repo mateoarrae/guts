@@ -4437,7 +4437,7 @@ kbd {
 
 /* line 87, ../bower_components/foundation/scss/foundation/components/_labels.scss */
 .label {
-  font-weight: normal;
+  font-weight: 300;
   font-family: "Ubuntu", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   text-align: center;
   text-decoration: none;
@@ -7915,7 +7915,7 @@ input[type="submit"]:hover, input[type="submit"]:focus {
 
 /* line 32, ../sass/_module.scss */
 .tag-links a {
-  font-weight: normal;
+  font-weight: 300;
   font-family: "Ubuntu", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   text-align: center;
   text-decoration: none;
@@ -7934,6 +7934,62 @@ input[type="submit"]:hover, input[type="submit"]:focus {
 }
 
 /*
+ * These are all the styles that WordPress requires by default and should be included in every theme.
+ * They control elements that can be styled or positioned by user input.
+ * Find out more here: http://codex.wordpress.org/Theme_Review
+ */
+/* line 25, ../sass/_wp-required.scss */
+.alignleft {
+  float: left;
+}
+
+/* line 29, ../sass/_wp-required.scss */
+.alignright {
+  float: right;
+}
+
+/* line 33, ../sass/_wp-required.scss */
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 41, ../sass/_wp-required.scss */
+blockquote.aligncenter {
+  clear: both;
+  border-left: none;
+  border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
+  padding: 0.5625rem 1.25rem 0 1.25rem;
+}
+
+/* line 52, ../sass/_wp-required.scss */
+img.aligncenter,
+.wp-caption.aligncenter {
+  margin: 0.5625rem auto;
+}
+
+/* line 57, ../sass/_wp-required.scss */
+.wp-caption img[class*="wp-image-"] {
+  display: block;
+  margin: 0;
+}
+
+/* line 62, ../sass/_wp-required.scss */
+.wp-caption {
+  color: #333333;
+}
+
+/* line 66, ../sass/_wp-required.scss */
+.wp-caption-text {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 0.6875rem;
+}
+
+/*
  * State rules are ways to describe how our modules or layouts will look when in a particular state. 
  * Is it hidden or expanded? Is it active or inactive? They are about describing how a module or layout
  * looks on screens that are smaller or bigger. They are also about describing how a module might look 
@@ -7941,7 +7997,43 @@ input[type="submit"]:hover, input[type="submit"]:focus {
  * Find out more about SMACSS here http://smacss.com/
  *
  */
-/*
- * These are all the styles that WordPress requires by default and should be included in every theme.
- * Find out more here: http://codex.wordpress.org/Theme_Review
- */
+/* line 13, ../sass/_state.scss */
+.side-nav a:hover,
+.side-nav a:active,
+.widget ul a:hover,
+.widget ul a:active {
+  color: #4d4d4d;
+}
+
+/* line 20, ../sass/_state.scss */
+.tag-links a:hover,
+.tag-links a:active {
+  background: #dadada;
+}
+
+@media only screen and (min-width: 40.063em) {
+  /* line 30, ../sass/_state.scss */
+  blockquote.alignright, blockquote.alignleft,
+  .wp-caption.alignright,
+  .wp-caption.alignleft {
+    width: 47%;
+  }
+  /* line 33, ../sass/_state.scss */
+  blockquote.alignright,
+  .wp-caption.alignright {
+    margin: 0.5625rem 0 0.5625rem 1.25rem;
+  }
+
+  /* line 40, ../sass/_state.scss */
+  img.alignleft,
+  .wp-caption.alignleft {
+    margin: 0.5625rem 1.25rem 0.5625rem 0;
+    width: 47%;
+  }
+  /* line 44, ../sass/_state.scss */
+  img.alignright,
+  .wp-caption.alignright {
+    margin: 0.5625rem 0 0.5625rem 1.25rem;
+    width: 47%;
+  }
+}
