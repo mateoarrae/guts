@@ -7913,8 +7913,9 @@ input[type="submit"]:hover, input[type="submit"]:focus {
   color: white;
 }
 
-/* line 32, ../sass/_module.scss */
-.tag-links a {
+/* line 33, ../sass/_module.scss */
+.tag-links a,
+.edit-link a {
   font-weight: 300;
   font-family: "Ubuntu", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   text-align: center;
@@ -8005,32 +8006,34 @@ img.aligncenter,
   color: #4d4d4d;
 }
 
-/* line 20, ../sass/_state.scss */
+/* line 21, ../sass/_state.scss */
 .tag-links a:hover,
-.tag-links a:active {
+.tag-links a:active,
+.edit-link a:hover,
+.edit-link a:active {
   background: #dadada;
 }
 
 @media only screen and (min-width: 40.063em) {
-  /* line 30, ../sass/_state.scss */
+  /* line 31, ../sass/_state.scss */
   blockquote.alignright, blockquote.alignleft,
   .wp-caption.alignright,
   .wp-caption.alignleft {
     width: 47%;
   }
-  /* line 33, ../sass/_state.scss */
+  /* line 34, ../sass/_state.scss */
   blockquote.alignright,
   .wp-caption.alignright {
     margin: 0.5625rem 0 0.5625rem 1.25rem;
   }
 
-  /* line 40, ../sass/_state.scss */
+  /* line 41, ../sass/_state.scss */
   img.alignleft,
   .wp-caption.alignleft {
     margin: 0.5625rem 1.25rem 0.5625rem 0;
     width: 47%;
   }
-  /* line 44, ../sass/_state.scss */
+  /* line 45, ../sass/_state.scss */
   img.alignright,
   .wp-caption.alignright {
     margin: 0.5625rem 0 0.5625rem 1.25rem;

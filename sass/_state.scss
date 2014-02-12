@@ -15,7 +15,8 @@
 	}
 }
 
-.tag-links {
+.tag-links,
+.edit-link {
 	a:hover,
 	a:active {
 		background: darken( $secondary-color, 5% );

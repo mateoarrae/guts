@@ -28,7 +28,8 @@ input[type="submit"] {
 	@include button( $radius: true, $is-input: true );
 }
 
-.tag-links {
+.tag-links,
+.edit-link {
 	a {
 		@include label( $bg: $secondary-color, $radius: $label-radius );
 		margin: 0 10px 0 0;
