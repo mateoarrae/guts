@@ -36,12 +36,10 @@ input[type="submit"] {
 	}
 }
 
-.sub-nav {
-	dd {
+.sub-nav dd {
+	&.edit-link {
 		a {
-			&.post-edit-link {
-				color: $label-font-color;
-			}
+			color: $label-font-color;
 		}
 	}
 }

@@ -7934,8 +7934,8 @@ input[type="submit"]:hover, input[type="submit"]:focus {
   margin: 0 10px 0 0;
 }
 
-/* line 42, ../sass/_module.scss */
-.sub-nav dd a.post-edit-link {
+/* line 41, ../sass/_module.scss */
+.sub-nav dd.edit-link a {
   color: #333333;
 }
 
