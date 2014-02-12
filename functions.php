@@ -414,7 +414,7 @@ if ( ! function_exists( 'guts_entry_meta' ) ) :
 function guts_entry_meta() {
 		
 	if ( is_sticky() && is_home() && ! is_paged() )
-		echo '<dd class="featured-post">' . __( 'Sticky', 'guts' ) . '</dd>';
+		echo '<dd class="featured-post"><span class="label">' . __( 'Sticky', 'guts' ) . '</span></dd>';
 
 	if ( ! has_post_format( 'link' ) && 'post' == get_post_type() )
 		guts_entry_date();
