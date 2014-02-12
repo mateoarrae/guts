@@ -8,6 +8,10 @@
 	font-size: emCalc(55);
 }
 
+input[type="submit"] {
+	@include button( $radius: true, $is-input: true );
+}
+
 .vcard {
 	&.author {
 		padding:0px;
@@ -24,14 +28,20 @@
 	}
 }
 
-input[type="submit"] {
-	@include button( $radius: true, $is-input: true );
-}
-
 .tag-links,
 .edit-link {
 	a {
-		@include label( $bg: $secondary-color, $radius: $label-radius );
+		@include label( $bg: $secondary-color, $text-size: $label-font-sizing, $padding: $label-padding, $radius: $label-radius );
 		margin: 0 10px 0 0;
+	}
+}
+
+.sub-nav {
+	dd {
+		a {
+			&.post-edit-link {
+				color: $label-font-color;
+			}
+		}
 	}
 }
