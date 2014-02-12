@@ -23,8 +23,7 @@
 		<?php if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) : ?>
 		<dd class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'guts' ), __( '1 Comment', 'guts' ), __( '% Comments', 'guts' ) ); ?></dd>
 		<?php endif; ?>
-		<dd class="edit-link"><a class="post-edit-link" href="<?php get_edit_post_link(); ?>"><i class="fi-pencil"></i>Edit</a></dd>
-		<?php //edit_post_link( __( 'Edit', 'guts' ), '<dd class="edit-link"><i class="fi-pencil"></i>', '</dd>' ); ?>
+		<dd class="edit-link"><a class="post-edit-link" href="<?php echo get_edit_post_link(); ?>"><i class="fi-pencil"></i>Edit</a></dd>
 	</dl>
  </header>
  
