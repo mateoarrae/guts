@@ -21,7 +21,7 @@ get_header(); ?>
 			  <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 				<?php get_template_part( 'content', get_post_format() ); ?>
-				<hr />
+				
 				<?php guts_post_nav(); ?>
 				<?php comments_template(); ?>
 				
