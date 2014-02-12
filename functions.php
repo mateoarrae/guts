@@ -305,6 +305,7 @@ function guts_paging_nav() {
 		$links = preg_split("/\n/", $wp_links);
 	
 	?>
+	<hr>
 	<div class="navigation paging-navigation pagination-centered" role="navigation">
 		<ul class="pagination loop-pagination">
 			<?php 
