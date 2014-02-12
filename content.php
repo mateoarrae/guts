@@ -43,4 +43,6 @@
 		</div><!-- .entry-content -->
 	<?php endif; ?>
 	
+    <?php if ( is_single() ) : ?>
 	<?php the_tags( '<footer class="entry-meta"><p class="tag-links">', '', '</p></footer>' ); ?>
+	<?php endif; // is_single() ?>
