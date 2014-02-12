@@ -26,7 +26,7 @@ get_header(); ?>
 	
 				<?php /* The loop */ ?>
 				<?php while ( have_posts() ) : the_post(); ?>
-				  <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+				  <article id="post-<?php the_ID(); ?>" <?php if( is_sticky( get_the_ID() ) ) : post_class( 'panel callout radius' ); else: post_class(); endif; ?>>
 					<?php get_template_part( 'content', get_post_format() ); ?>
 				  </article>
 				<?php endwhile; ?>
