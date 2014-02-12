@@ -310,7 +310,7 @@ function guts_paging_nav() {
 			<?php 
 			foreach ( $links as $link ) :
 				// Foreach link in the array check for current page span, next and previous links - then output list items appropriately
-				if ( preg_match( "/<span(.*?)<\/span>/", $link ) ) :
+				if ( preg_match( "/<span class='page-numbers current(.*?)<\/span>/", $link ) ) :
 					echo '<li class="current">'.preg_replace("/span/", "a", $link)."</li>\n\t\t\t";
 				elseif( preg_match( "/next|prev/", $link ) ) :
 					echo '<li class="arrow">'.$link."</li>\n\t\t\t";
