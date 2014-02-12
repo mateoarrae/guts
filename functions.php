@@ -359,6 +359,7 @@ function guts_post_nav() {
 	if ( ! $next && ! $previous )
 		return;
 	?>
+	<hr>
 	<h4 class="screen-reader-text"><?php _e( 'Other Posts', 'guts' ); ?></h4>
 	<ul class="button-group radius post-navigation" role="navigation">
 	  <li><?php previous_post_link( '%link', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'guts' ) ); ?></li>
