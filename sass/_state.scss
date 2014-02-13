@@ -23,6 +23,19 @@
 	}
 }
 
+.panel.callout {
+	a:hover,
+	a:active {
+		color: darken( $primary-color, $panel-function-factor );
+	}
+	.edit-link {
+		a:hover,
+		a:active {
+			background: lighten( $primary-color, 45% );
+		}
+	}
+}
+
 @media #{$medium-up} {
 
 	blockquote,

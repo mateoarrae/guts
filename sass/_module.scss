@@ -43,3 +43,11 @@ input[type="submit"] {
 		}
 	}
 }
+.panel.callout {
+	.edit-link {
+		a {
+			background: lighten( $primary-color, 50% );
+			color: $primary-color;
+		}
+	}
+}
