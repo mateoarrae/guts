@@ -400,7 +400,7 @@ class guts_top_bar_walker extends Walker_Nav_Menu {
  *
  * @since Guts 0.0.1
  */
-class guts_walker_comment extends Walker_Comment {
+class guts_comment_walker extends Walker_Comment {
      
     // init classwide variables
     var $tree_type = 'comment';

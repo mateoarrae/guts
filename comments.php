@@ -30,7 +30,7 @@ if ( post_password_required() )
 		<div class="comments-list">
 			<?php
 				wp_list_comments( array(
-					'walker'	  => new guts_walker_comment(),
+					'walker'	  => new guts_comment_walker(),
 					'style'       => 'div',
 					'short_ping'  => true,
 					'avatar_size' => 74,
