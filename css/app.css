@@ -4916,7 +4916,7 @@ ul.pagination li {
 .panel {
   border-style: solid;
   border-width: 1px;
-  border-color: #d8d8d8;
+  border-color: #f4f4f4;
   margin-bottom: 1.25rem;
   padding: 1.25rem;
   background: #f2f2f2;
@@ -4946,7 +4946,7 @@ ul.pagination li {
 .panel.callout {
   border-style: solid;
   border-width: 1px;
-  border-color: #b6edff;
+  border-color: #eefbff;
   margin-bottom: 1.25rem;
   padding: 1.25rem;
   background: #ecfaff;
@@ -7820,6 +7820,11 @@ th.hide-for-touch {
  * Find out more about SMACSS here http://smacss.com/
  *
  */
+/* line 8, ../sass/_layout.scss */
+.l-site-content .post {
+  clear: both;
+}
+
 /*
  * Modules are the reusable, modular parts of our design. They are the callouts, the sidebar sections, the product lists and so on.
  * Find out more about SMACSS here http://smacss.com/
@@ -7939,29 +7944,45 @@ input[type="submit"]:hover, input[type="submit"]:focus {
   color: #333333;
 }
 
+/* line 48, ../sass/_module.scss */
+.panel.callout .edit-link a {
+  background: #baeeff;
+  color: #008cba;
+}
+
 /*
  * These are all the styles that WordPress requires by default and should be included in every theme.
  * They control elements that can be styled or positioned by user input.
  * Find out more here: http://codex.wordpress.org/Theme_Review
  */
-/* line 25, ../sass/_wp-required.scss */
+/* line 17, ../sass/_wp-required.scss */
+.sticky dd.featured-post {
+  margin-bottom: 0.5rem;
+}
+/* line 19, ../sass/_wp-required.scss */
+.sticky dd.featured-post .label {
+  font-size: inherit;
+  margin-bottom: 0;
+}
+
+/* line 31, ../sass/_wp-required.scss */
 .alignleft {
   float: left;
 }
 
-/* line 29, ../sass/_wp-required.scss */
+/* line 35, ../sass/_wp-required.scss */
 .alignright {
   float: right;
 }
 
-/* line 33, ../sass/_wp-required.scss */
+/* line 39, ../sass/_wp-required.scss */
 .aligncenter {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 41, ../sass/_wp-required.scss */
+/* line 47, ../sass/_wp-required.scss */
 blockquote.aligncenter {
   clear: both;
   border-left: none;
@@ -7970,29 +7991,36 @@ blockquote.aligncenter {
   padding: 0.5625rem 1.25rem 0 1.25rem;
 }
 
-/* line 52, ../sass/_wp-required.scss */
+/* line 58, ../sass/_wp-required.scss */
 img.aligncenter,
 .wp-caption.aligncenter {
   margin: 0.5625rem auto;
 }
 
-/* line 57, ../sass/_wp-required.scss */
+/* line 63, ../sass/_wp-required.scss */
 .wp-caption img[class*="wp-image-"] {
   display: block;
   margin: 0;
 }
 
-/* line 62, ../sass/_wp-required.scss */
+/* line 68, ../sass/_wp-required.scss */
 .wp-caption {
   color: #333333;
 }
 
-/* line 66, ../sass/_wp-required.scss */
-.wp-caption-text {
+/* line 73, ../sass/_wp-required.scss */
+.wp-caption-text,
+.gallery-caption {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-size: 0.6875rem;
+}
+/* line 76, ../sass/_wp-required.scss */
+.wp-caption-text .label,
+.gallery-caption .label {
+  white-space: normal;
+  line-height: 1.35;
 }
 
 /*
@@ -8019,26 +8047,37 @@ img.aligncenter,
   background: #dadada;
 }
 
+/* line 28, ../sass/_state.scss */
+.panel.callout a:hover,
+.panel.callout a:active {
+  color: #006687;
+}
+/* line 33, ../sass/_state.scss */
+.panel.callout .edit-link a:hover,
+.panel.callout .edit-link a:active {
+  background: #a1e8ff;
+}
+
 @media only screen and (min-width: 40.063em) {
-  /* line 31, ../sass/_state.scss */
+  /* line 44, ../sass/_state.scss */
   blockquote.alignright, blockquote.alignleft,
   .wp-caption.alignright,
   .wp-caption.alignleft {
     width: 47%;
   }
-  /* line 34, ../sass/_state.scss */
+  /* line 47, ../sass/_state.scss */
   blockquote.alignright,
   .wp-caption.alignright {
     margin: 0.5625rem 0 0.5625rem 1.25rem;
   }
 
-  /* line 41, ../sass/_state.scss */
+  /* line 54, ../sass/_state.scss */
   img.alignleft,
   .wp-caption.alignleft {
     margin: 0.5625rem 1.25rem 0.5625rem 0;
     width: 47%;
   }
-  /* line 45, ../sass/_state.scss */
+  /* line 58, ../sass/_state.scss */
   img.alignright,
   .wp-caption.alignright {
     margin: 0.5625rem 0 0.5625rem 1.25rem;
