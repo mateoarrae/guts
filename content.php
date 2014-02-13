@@ -23,7 +23,7 @@
 		<?php if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) : ?>
 		<dd class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'guts' ), __( '1 Comment', 'guts' ), __( '% Comments', 'guts' ) ); ?></dd>
 		<?php endif; ?>
-		<dd class="edit-link"><a class="post-edit-link" href="<?php echo get_edit_post_link(); ?>"><i class="fi-pencil"></i>Edit</a></dd>
+		<?php edit_post_link( __( 'Edit', 'guts' ), '<dd class="edit-link">', '</dd>' ); ?>
 	</dl>
  </header>
  
@@ -43,6 +43,11 @@
 		</div><!-- .entry-content -->
 	<?php endif; ?>
 	
+ <footer class="entry-meta">
+    <dl class="sub-nav entry-meta">
     <?php if ( is_single() ) : ?>
-	<?php the_tags( '<footer class="entry-meta"><p class="tag-links">', '', '</p></footer>' ); ?>
-	<?php endif; // is_single() ?>
+		<?php the_tags( '<dd class="tag-links">', '', '</dd>' ); ?>
+		<?php edit_post_link( __( 'Edit', 'guts' ), '<dd class="edit-link">', '</dd>' ); ?>
+	<?php endif; ?>
+	</dl>
+ </footer>
