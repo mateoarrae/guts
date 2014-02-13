@@ -12,12 +12,18 @@ $alignleft-margin: emCalc(9 20 9 0);
 $alignright-margin: emCalc(9 0 9 20);
 $aligncenter-margin: emCalc(9) auto;
 
-.sticky css class {
-	
+.sticky {
+	dd {
+		&.featured-post {
+			margin-bottom: rem-calc(8);
+			.label {
+				font-size: inherit;
+				margin-bottom: 0;
+			}
+		}
+	}
 }
-.gallery-caption {
-	
-}
+
 .bypostauthor {
 	
 }
@@ -63,7 +69,12 @@ img,
 	color: $label-font-color;
 }
 
-.wp-caption-text {
+.wp-caption-text,
+.gallery-caption {
 	@include box-sizing( border-box );
 	font-size: $label-font-sizing;
+	.label {
+		white-space: normal;
+		line-height: 1.35;
+	}
 }
