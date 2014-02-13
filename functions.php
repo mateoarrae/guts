@@ -403,6 +403,20 @@ function guts_yoast_breadcrumbs() {
 }
 endif;
 
+/**
+ * Adds Foundation Icon Font Pencil Icon before anchor text
+ * Output by edit_post_link()
+ *
+ * @since Guts 0.0.1
+ *
+ * @return void
+ */
+function guts_add_edit_icon($format){
+  $format = str_replace('">', '"><i class="icon fi-pencil"></i>', $format);
+  return $format;
+}
+add_filter('edit_post_link', 'guts_add_edit_icon');
+
 if ( ! function_exists( 'guts_entry_meta' ) ) :
 /**
  * Print HTML with meta information for current post: categories, tags, permalink, author, and date.
@@ -416,7 +430,7 @@ function guts_entry_meta() {
 	if ( is_sticky() && is_home() && ! is_paged() )
 		echo '<dd class="featured-post"><span class="label">' . __( 'Sticky', 'guts' ) . '</span></dd>';
 
-	if ( ! has_post_format( 'link' ) && 'post' == get_post_type() )
+	if ( ! has_post_format( 'link' ) && 'post' == get_post_type() && ! is_sticky() )
 		guts_entry_date();
 
 	// Translators: used between list items, there is a space after the comma.
