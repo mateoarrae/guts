@@ -431,7 +431,7 @@ class guts_comment_walker extends Walker_Comment {
             
 	          <section id="comment-content-<?php comment_ID(); ?>" class="comment-content">
 	            <?php if( !$comment->comment_approved ) : ?>
-	              <span class="label alert comment-awaiting-moderation"><?php __('Your comment is awaiting moderation.', 'guts'); ?></span>
+	              <p><span class="label alert comment-awaiting-moderation"><?php _e('Your comment is awaiting moderation.', 'guts'); ?></span></p>
 	            <?php else: comment_text(); ?>
 	            <?php endif; ?>
 	          </section>
