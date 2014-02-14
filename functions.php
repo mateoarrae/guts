@@ -142,12 +142,6 @@ function guts_scripts_styles() {
 	// Loads JavaScript file ready for Customisation.
 	// wp_enqueue_script( 'guts-script', get_template_directory_uri() . '/js/guts.js', array( 'jquery' ), '2013-11-05', true );
 
-	// Add Ubuntu font, used in app.css.
-	wp_enqueue_style( 'guts-fonts', 'http://fonts.googleapis.com/css?family=Ubuntu:300,500,300italic,500italic&subset=latin,latin-ext', array(), null );
-
-	// Add Genericons font.
-	// wp_enqueue_style( 'genericons', get_template_directory_uri() . '/fonts/genericons.css', array(), '2.09' );
-
 	// Loads our main stylesheet.
 	wp_enqueue_style( 'guts-style', get_template_directory_uri() . '/css/app.css', array(), '2013-11-05' );
 
@@ -259,11 +253,10 @@ add_action( 'widgets_init', 'guts_widgets_init' );
 
 
 /**
- * Adds Foundation small button class to anchor markup output by previous_post_link() and next_post)link()
+ * Adds Foundation small button class to anchor markup where no previous classes exist
+ * Output by previous_post_link(), next_post)link()
  *
  * @since Guts 0.0.1
- *
- * @return void
  */
 function guts_add_button_class($format){
   $format = str_replace('href=', 'class="small button" href=', $format);
@@ -271,20 +264,33 @@ function guts_add_button_class($format){
 }
 add_filter('next_post_link', 'guts_add_button_class');
 add_filter('previous_post_link', 'guts_add_button_class');
+add_filter('comment_reply_link', 'guts_add_button_class');
 
 /**
  * Adds Foundation Icon Font Pencil Icon before anchor text
- * Output by edit_post_link()
+ * Output by edit_post_link() and edit_comment_link()
  *
  * @since Guts 0.0.1
- *
- * @return void
  */
 function guts_add_edit_icon($format){
-  $format = str_replace('">', '"><i class="icon fi-pencil"></i>', $format);
+  $format = str_replace('">', '"><i class="icon fi-pencil"></i> ', $format);
   return $format;
 }
 add_filter('edit_post_link', 'guts_add_edit_icon');
+add_filter('edit_comment_link', 'guts_add_edit_icon');
+
+/**
+ * Adds Foundation button classes and comment icons to Comment Reply links
+ * Output by comment_reply_link()
+ *
+ * @since Guts 0.0.1
+ */
+function guts_comment_icon_button($format){
+  $format = str_replace("class='comment-reply-link'", "class='comment-reply-link tiny button radius'", $format);
+  $format = str_replace("'>", "'><i class=\"icon fi-comment\"></i> ", $format);
+  return $format;
+}
+add_filter('comment_reply_link', 'guts_comment_icon_button');
 
 /**
  * Return the post URL.
@@ -425,17 +431,28 @@ class guts_comment_walker extends Walker_Comment {
             
 	          <section id="comment-content-<?php comment_ID(); ?>" class="comment-content">
 	            <?php if( !$comment->comment_approved ) : ?>
-	              <em class="comment-awaiting-moderation">Your comment is awaiting moderation.</em>
+	              <span class="label alert comment-awaiting-moderation"><?php __('Your comment is awaiting moderation.', 'guts'); ?></span>
 	            <?php else: comment_text(); ?>
 	            <?php endif; ?>
 	          </section>
 	 
-	          <footer class="comment-meta comment-meta-data">
-	            <dl class="sub-nav">
-	              <dd class="comment-author author vcard"><cite class="fn n author-name" rel="author">- <?php echo get_comment_author_link(); ?></cite></dd>
-	              <dd class="date"><a href="<?php echo htmlspecialchars( get_comment_link( get_comment_ID() ) ) ?>"><?php comment_date(); ?> at <?php comment_time(); ?></a></dd>
-	              <?php edit_comment_link(__( 'Edit', 'guts' ), '<dd class="edit-link">', '</dd>' ); ?>
-	            </dl>
+	          <footer class="comment-meta comment-meta-data row">
+	            <div class="large-8 medium-6 columns">
+	              <dl class="sub-nav">
+	                <dd class="comment-author author vcard">
+	                  <cite class="fn n author-name" rel="author">- <?php echo get_comment_author_link(); ?></cite>
+	                </dd>
+	                <dd class="date">
+	                  <a href="<?php echo htmlspecialchars( get_comment_link( get_comment_ID() ) ) ?>">
+	                  <?php comment_date(); ?> <?php _e('at', 'guts'); ?> <?php comment_time(); ?></a>
+	                </dd>
+	                <?php edit_comment_link(__( 'Edit', 'guts' ), '<dd class="edit-link">', '</dd>' ); ?>
+	              </dl>
+	            </div>
+	            <div class="reply large-4 medium-6 columns">
+					<?php $reply_args = array('depth' => $depth,'max_depth' => $args['max_depth'] ); ?>
+					<?php comment_reply_link( array_merge( $args, $reply_args ) );  ?>
+				</div>
 	          </footer>
 	          
             </div>
