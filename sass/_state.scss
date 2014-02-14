@@ -26,7 +26,7 @@
 .panel.callout {
 	a:hover,
 	a:active {
-		color: darken( $primary-color, $panel-function-factor );
+		color: darken( $primary-color, 50% );
 	}
 	.edit-link {
 		a:hover,
