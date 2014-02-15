@@ -206,8 +206,8 @@ $paragraph-font-weight: 300;
 // Style <code> tags
 
 // $code-color: darken($alert-color, 15%);
-// $code-font-family: Consolas, 'Liberation Mono', Courier, monospace;
-// $code-font-weight: bold;
+$code-font-family: 'Ubuntu Mono', Consolas, 'Liberation Mono', Courier, monospace;
+$code-font-weight: normal;
 
 // Style anchors
 
