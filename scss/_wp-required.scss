@@ -3,14 +3,6 @@
  * They control elements that can be styled or positioned by user input.
  * Find out more here: http://codex.wordpress.org/Theme_Review
  */
- 
-$blockquote-alignleft-padding: $blockquote-padding;
-$blockquote-alignright-padding: emCalc(9 19 0 20);
-$blockquote-aligncenter-padding: emCalc(9 20 0 20);
-
-$alignleft-margin: emCalc(9 20 9 0);
-$alignright-margin: emCalc(9 0 9 20);
-$aligncenter-margin: emCalc(9) auto;
 
 .sticky {
 	dd {
@@ -25,7 +17,9 @@ $aligncenter-margin: emCalc(9) auto;
 }
 
 .bypostauthor {
-	
+	.comment-author {
+		@include border-radius(50%);
+	}
 }
 
 .alignleft {
