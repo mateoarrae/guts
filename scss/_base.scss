@@ -1,0 +1,29 @@
+/**
+ * This file is a place to setup your own custom variables and mixins. It's also where we'll initialise
+ * the Compass utilities we intend to use. Find out more here http://compass-style.org/help/tutorials/best_practices/
+ */
+
+// Guts Custom Variables
+
+$blockquote-alignleft-padding: $blockquote-padding;
+$blockquote-alignright-padding: emCalc(9 19 0 20);
+$blockquote-aligncenter-padding: emCalc(9 20 0 20);
+
+$alignleft-margin: emCalc(9 20 9 0);
+$alignright-margin: emCalc(9 0 9 20);
+$aligncenter-margin: emCalc(9) auto;
+
+
+/**
+ * Compass Imports - Uncomment as required below.
+ * For more info see http://compass-style.org/reference/compass/
+ */
+
+// @import "compass";
+
+// @import "compass/reset";
+// @import "compass/layout";
+@import "compass/css3";
+// @import "compass/typography";
+// @import "compass/utilities";
+// @import "blueprint";

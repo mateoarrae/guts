@@ -44,15 +44,22 @@
 // @import "foundation/components/tooltips";
 // @import "foundation/components/dropdown";
 
-// 
-// Guts Styling
-// Add your own imports here if you want new sass/_stylesheets.scss to be compiled into css/app.css
-// Guts is ready setup to use SMACSS Scalable and Modular Architecture for CSS
-// Find out more about SMACCS here http://smacss.com/
-//
 
+// Guts Custom Styling
+
+// Required Compass Utilities, Custom Mixins and Custom Variables for Guts
+// Take a lookat _base.scss for more details.
+@import "base";
+
+// WebFonts and IconFonts
 @import "fonts/foundation-icons";
 @import "fonts/ubuntu";
+
+// Guts is setup to use SMACSS Scalable and Modular Architecture for CSS
+// Look inside the _layout.scss, _module.scss and _state.scss files to find out more.
+// Feel free to add _your-own.scss files and import them below too. 
+// Guts separates the basic styles required by WordPress into _wp-required.scss for easier theme dev.
+
 @import "layout";
 @import "wp-required";
 @import "module";
