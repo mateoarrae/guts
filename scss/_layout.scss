@@ -5,7 +5,11 @@
  */
  
 .l-site-content {
+	padding-top: emCalc(9);
 	.post {
 		clear:both;
 	}
+}
+.l-comments-container {
+	clear: both;
 }

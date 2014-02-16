@@ -9590,8 +9590,17 @@ th.hide-for-touch {
  * Find out more about SMACSS here http://smacss.com/
  *
  */
-/* line 8, ../scss/_layout.scss */
+/* line 7, ../scss/_layout.scss */
+.l-site-content {
+  padding-top: 0.5625rem;
+}
+/* line 9, ../scss/_layout.scss */
 .l-site-content .post {
+  clear: both;
+}
+
+/* line 13, ../scss/_layout.scss */
+.l-comments-container {
   clear: both;
 }
 
