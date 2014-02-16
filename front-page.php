@@ -13,7 +13,7 @@
 get_header(); ?>
 
 <div class="row">
-	<div class="large-10 large-centered columns">
+	<div class="large-12 columns">
 		<div id="content" class="l-site-content" role="main">
 	
 				<?php /* The loop */ ?>
