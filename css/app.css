@@ -9617,26 +9617,27 @@ th.hide-for-touch {
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
   border-radius: 50%;
+  overflow: hidden;
 }
 
-/* line 25, ../scss/_wp-required.scss */
+/* line 26, ../scss/_wp-required.scss */
 .alignleft {
   float: left;
 }
 
-/* line 29, ../scss/_wp-required.scss */
+/* line 30, ../scss/_wp-required.scss */
 .alignright {
   float: right;
 }
 
-/* line 33, ../scss/_wp-required.scss */
+/* line 34, ../scss/_wp-required.scss */
 .aligncenter {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 41, ../scss/_wp-required.scss */
+/* line 42, ../scss/_wp-required.scss */
 blockquote.aligncenter {
   clear: both;
   border-left: none;
@@ -9645,24 +9646,24 @@ blockquote.aligncenter {
   padding: 0.5625rem 1.25rem 0 1.25rem;
 }
 
-/* line 52, ../scss/_wp-required.scss */
+/* line 53, ../scss/_wp-required.scss */
 img.aligncenter,
 .wp-caption.aligncenter {
   margin: 0.5625rem auto;
 }
 
-/* line 57, ../scss/_wp-required.scss */
+/* line 58, ../scss/_wp-required.scss */
 .wp-caption img[class*="wp-image-"] {
   display: block;
   margin: 0;
 }
 
-/* line 62, ../scss/_wp-required.scss */
+/* line 63, ../scss/_wp-required.scss */
 .wp-caption {
   color: #333333;
 }
 
-/* line 67, ../scss/_wp-required.scss */
+/* line 68, ../scss/_wp-required.scss */
 .wp-caption-text,
 .gallery-caption {
   -webkit-box-sizing: border-box;
@@ -9670,7 +9671,7 @@ img.aligncenter,
   box-sizing: border-box;
   font-size: 0.6875rem;
 }
-/* line 70, ../scss/_wp-required.scss */
+/* line 71, ../scss/_wp-required.scss */
 .wp-caption-text .label,
 .gallery-caption .label {
   white-space: normal;
