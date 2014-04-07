@@ -27,7 +27,7 @@
         	<p><a href="<?php echo esc_url( __( 'http://wordpress.org/', 'guts' ) ); ?>" title="<?php esc_attr_e( 'Semantic Personal Publishing Platform', 'guts' ); ?>"><?php printf( __( 'Proudly powered by %s', 'guts' ), 'WordPress' ); ?></a></p>
         </div>
         <div class="large-3 offset-1 column">
-        	<p><?php printf( __('Created by %s', 'guts'), 'Rose Mckeon'); ?></p>
+        	<p><?php printf( __('Created by %s', 'guts'), '<a href="http://www.rosemckeon.co.uk">Rose Mckeon</a>'); ?></p>
         </div>
       </div>
 
