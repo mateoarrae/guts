@@ -23,6 +23,7 @@
       </div>
       <hr />
       <div class="row">
+        <!-- Feel free to remove these lines for your project !-->
         <div class="large-8 columns">
         	<p><a href="<?php echo esc_url( __( 'http://wordpress.org/', 'guts' ) ); ?>" title="<?php esc_attr_e( 'Semantic Personal Publishing Platform', 'guts' ); ?>"><?php printf( __( 'Proudly powered by %s', 'guts' ), 'WordPress' ); ?></a></p>
         </div>
