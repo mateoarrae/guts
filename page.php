@@ -13,41 +13,52 @@
 
 get_header(); ?>
 
-<div class="row">
-	<div class="large-8 columns">
-		<div id="content" class="l-site-content" role="main">
+<div id="content" class="l-site-content" role="main">
+
+<?php /* The loop */ ?>
+<?php while ( have_posts() ) : the_post(); ?>
+
+	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	
-				<?php /* The loop */ ?>
-				<?php while ( have_posts() ) : the_post(); ?>
+		<div class="row">
+			<div class="small-12 columns">
+				
+				<header class="entry-header">
+					<?php if ( has_post_thumbnail() && ! post_password_required() ) : ?>
+					<div class="entry-thumbnail">
+						<?php the_post_thumbnail(); ?>
+					</div>
+					<?php endif; ?>
+
+					<h1 class="entry-title"><?php the_title(); ?></h1>
+					<hr />
+				</header><!-- .entry-header -->
 	
-					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-						<header class="entry-header">
-							<?php if ( has_post_thumbnail() && ! post_password_required() ) : ?>
-							<div class="entry-thumbnail">
-								<?php the_post_thumbnail(); ?>
-							</div>
-							<?php endif; ?>
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-8 columns">
 	
-							<h1 class="entry-title"><?php the_title(); ?></h1>
-						</header><!-- .entry-header -->
+				<div class="entry-content">
+					<?php the_content(); ?>
+					<?php wp_link_pages( array( 'before' => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'guts' ) . '</span>', 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) ); ?>
+				</div><!-- .entry-content -->
 	
-						<div class="entry-content">
-							<?php the_content(); ?>
-							<?php wp_link_pages( array( 'before' => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'guts' ) . '</span>', 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) ); ?>
-						</div><!-- .entry-content -->
+				<footer class="entry-meta">
+					<?php edit_post_link( __( 'Edit', 'guts' ), '<span class="edit-link">', '</span>' ); ?>
+				</footer><!-- .entry-meta -->	
+				
+				<?php comments_template(); ?>
+						
+			</div>
+			<div class="large-3 offset-1 columns" role="complementary">
+				<?php get_sidebar(); ?>
+			</div>
+		</div>
+	</article>
 	
-						<footer class="entry-meta">
-							<?php edit_post_link( __( 'Edit', 'guts' ), '<span class="edit-link">', '</span>' ); ?>
-						</footer><!-- .entry-meta -->
-					</article><!-- #post -->
-	
-					<?php comments_template(); ?>
-				<?php endwhile; ?>
-	
-		</div><!-- #content -->
-	</div>
-	<div class="large-3 offset-1 columns">
-		<?php get_sidebar(); ?>
-	</div>
+<?php endwhile; ?>
 </div>
+
+
 <?php get_footer(); ?>
