@@ -11,7 +11,7 @@
 <form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
   <div class="row">
   	<div class="small-12 column">
-  		<label for="search"><h6 class="screen-reader-text">Search for:</h6></label>
+  		<label for="search"><h6 class="screen-reader-text"><?php _e('Search for', 'guts'); ?>:</h6></label>
   	</div>
   </div>
   <div class="row collapse">

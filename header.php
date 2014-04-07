@@ -29,7 +29,7 @@
         <li class="name">
           <h1 class="site-title"><a class="home-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
         </li>          
-        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span><?php _e( 'Menu' , 'guts' ); ?></span></a></li>
       </ul>
       <section class="top-bar-section">
         <?php wp_nav_menu(array('container' => false, 'menu_class' => 'left', 'theme_location' => 'primary-left', 'fallback_cb' => false, 'walker' => new guts_top_bar_walker() )); ?>
