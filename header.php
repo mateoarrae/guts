@@ -39,11 +39,8 @@
     </nav>
     <?php if ( is_front_page() ) : ?>
     <div class="row">
-	  <div class="large-8 columns">   
+	  <div class="large-8 large-offset-2 columns">   
 	    <h1 class="site-title"><a class="home-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a> <small><?php bloginfo( 'description' ); ?></small></h1>
-	  </div>
-	  <div class="large-3 offset-1 columns">
-	    <?php get_search_form(); ?>
 	  </div>
     </div>
     <hr />
