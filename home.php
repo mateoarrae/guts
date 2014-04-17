@@ -1,0 +1,53 @@
+<?php
+/**
+ * The template for displaying the main blog page
+ *
+ * This is the template that displays the blog when it is not used
+ * as the main home page of your site.
+ *
+ * @package WordPress
+ * @subpackage Guts
+ * @since Guts 0.0.1
+ */
+
+get_header(); ?>
+
+<div id="content" class="l-site-content" role="main">
+
+<?php if ( have_posts() ) : ?>
+
+	<div class="row">
+		<div class="small-12 columns">
+		
+			<header class="entry-header">
+					<h1 class="entry-title"><?php _e( 'Articles', 'guts' ); ?></h1>
+					<hr />
+			</header><!-- .entry-header -->
+		
+		</div>
+	</div>
+	<div class="row">
+		<div class="large-8 columns">
+	
+				<?php /* The loop */ ?>
+				<?php while ( have_posts() ) : the_post(); ?>
+				  <article id="post-<?php the_ID(); ?>" <?php if( is_sticky( get_the_ID() ) ) : post_class( 'panel radius' ); else: post_class(); endif; ?>>
+					<?php get_template_part( 'content', get_post_format() ); ?>
+				  </article>
+				<?php endwhile; ?>
+	
+				<?php guts_paging_nav(); ?>
+	
+		</div>
+		<div class="large-3 offset-1 columns" role="complementary">
+			<?php get_sidebar(); ?>
+		</div>
+	</div>
+
+<?php else : ?>
+	<?php get_template_part( 'content', 'none' ); ?>
+<?php endif; ?>
+
+</div>
+
+<?php get_footer(); ?>
