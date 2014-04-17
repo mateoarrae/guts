@@ -1,0 +1,13 @@
+/**
+ * Styles to overwrite the default sizing behaviour of WordPress dashicons
+ * Dashicons are required in functions.php as a dependency for the guts stylesheet
+ *
+ */
+ 
+.dashicons,
+.dashicons-before {
+ width: auto;
+ height: auto;
+ font-size: inherit;
+ line-height: inherit;
+}

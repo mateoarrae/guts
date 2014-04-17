@@ -7823,6 +7823,20 @@ th.hide-for-touch {
  * Compass Imports - Uncomment as required below.
  * For more info see http://compass-style.org/reference/compass/
  */
+/**
+ * Styles to overwrite the default sizing behaviour of WordPress dashicons
+ * Dashicons are required in functions.php as a dependency for the guts stylesheet
+ *
+ */
+/* line 8, ../scss/fonts/_dashicons.scss */
+.dashicons,
+.dashicons-before {
+  width: auto;
+  height: auto;
+  font-size: inherit;
+  line-height: inherit;
+}
+
 /* 
  * Foundation Icons v 3.0
  * Made by ZURB 2013 http://zurb.com/playground/foundation-icon-fonts-3

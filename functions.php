@@ -31,9 +31,9 @@ if ( ! isset( $content_width ) )
 	$content_width = 637;
 
 /**
- * Guts only works in WordPress 3.6 or later.
+ * Guts only works in WordPress 3.8 or later.
  */
-if ( version_compare( $GLOBALS['wp_version'], '3.6-alpha', '<' ) )
+if ( version_compare( $GLOBALS['wp_version'], '3.8-alpha', '<' ) )
 	require get_template_directory() . '/includes/back-compat.php';
 
 /**
@@ -143,7 +143,7 @@ function guts_scripts_styles() {
 	// wp_enqueue_script( 'guts-script', get_template_directory_uri() . '/js/guts.js', array( 'jquery' ), '2013-11-05', true );
 
 	// Loads our main stylesheet.
-	wp_enqueue_style( 'guts-style', get_template_directory_uri() . '/css/app.css', array(), '2013-11-05' );
+	wp_enqueue_style( 'guts-style', get_template_directory_uri() . '/css/app.css', array('dashicons'), '2014-04-17' );
 
 	// Loads an Internet Explorer specific stylesheet.
 	//wp_enqueue_style( 'guts-ie', get_template_directory_uri() . '/css/ie.css', array( 'guts-style' ), '2013-11-05' );
