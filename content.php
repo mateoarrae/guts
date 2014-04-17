@@ -45,7 +45,7 @@
  <footer class="entry-meta">
     <dl class="sub-nav entry-meta">
     <?php if ( is_single() ) : ?>
-		<?php the_tags( '<dd class="tag-links">', '', '</dd>' ); ?>
+		<?php the_tags( '<dt><i class="fi-pricetag-multiple"></i> Tagged as: </dt><dd class="tag-links">', '', '</dd>' ); ?>
 		<?php edit_post_link( __( 'Edit', 'guts' ), '<dd class="edit-link">', '</dd>' ); ?>
 	<?php endif; ?>
 	</dl>
