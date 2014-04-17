@@ -22,6 +22,9 @@ get_header(); ?>
 				<h1 class="entry-title"><?php the_title(); ?></h1>
 								
 			    <dl class="sub-nav entry-meta">
+			      <?php if ( has_post_format() ) : ?>
+			    	<dd class="post-format"><a class="entry-format label secondary radius" href="<?php echo esc_url( get_post_format_link( get_post_format() ) ); ?>"><i class="dashicons dashicons-format-<?php echo get_post_format(); ?>"></i> <?php echo get_post_format_string( get_post_format() ); ?></a></dd> 
+			      <?php endif; ?>
 			    	<?php guts_entry_meta(); ?>
 					<?php if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) : ?>
 					<dd class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'guts' ), __( '1 Comment', 'guts' ), __( '% Comments', 'guts' ) ); ?></dd>
