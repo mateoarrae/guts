@@ -6,7 +6,8 @@
 
 .sticky {
 	dd {
-		&.featured-post {
+		&.featured-post,
+		&.post-format {
 			margin-bottom: rem-calc(8);
 			.label {
 				font-size: inherit;
