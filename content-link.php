@@ -11,7 +11,7 @@
 <?php if ( !is_single() ) : // Not displayed on post pages using single.php ?>
  <header class="entry-header">
 	<h2 class="entry-title">
-		<a href="<?php the_permalink(); ?>" rel="bookmark"><i class="dashicons dashicons-format-link"></i> <?php the_title(); ?></a>
+		<a href="<?php the_permalink(); ?>" rel="bookmark"><i class="dashicons dashicons-format-links"></i> <?php the_title(); ?></a>
 	</h2>
 	
     <dl class="sub-nav entry-meta">
