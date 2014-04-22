@@ -161,13 +161,13 @@ if ( ! function_exists( 'guts_post_format_link' ) ) :
  */
 function guts_post_format_link() {
 
-	if ( has_post_format() && !has_post_format('link') ) :
+	if ( has_post_format() && ! has_post_format( 'link' ) ) :
 	
-		echo = '<dd class="post-format"><a class="entry-format label secondary radius" href="<?php echo esc_url( get_post_format_link( get_post_format() ) ); ?>"><i class="dashicons dashicons-format-'. get_post_format() .'"></i> '.get_post_format_string( get_post_format() ).'</a></dd>'; 
+		echo '<dd class="post-format"><a class="entry-format label secondary radius" href="<?php echo esc_url( get_post_format_link( get_post_format() ) ); ?>"><i class="dashicons dashicons-format-'. get_post_format() .'"></i> '.get_post_format_string( get_post_format() ).'</a></dd>'; 
 		
-	elseif ( has_post_format('link') ) : // Add an 's' to post format class.
+	elseif ( has_post_format( 'link' ) ) : // Add an 's' to post format class.
 	
-		echo = '<dd class="post-format"><a class="entry-format label secondary radius" href="<?php echo esc_url( get_post_format_link( get_post_format() ) ); ?>"><i class="dashicons dashicons-format-'. get_post_format() .'s"></i> '.get_post_format_string( get_post_format() ).'</a></dd>'; 
+		echo '<dd class="post-format"><a class="entry-format label secondary radius" href="<?php echo esc_url( get_post_format_link( get_post_format() ) ); ?>"><i class="dashicons dashicons-format-'. get_post_format() .'s"></i> '.get_post_format_string( get_post_format() ).'</a></dd>'; 
 
 	endif;
 
