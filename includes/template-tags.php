@@ -151,6 +151,30 @@ function guts_yoast_breadcrumbs() {
 }
 endif;
 
+if ( ! function_exists( 'guts_post_format_link' ) ) :
+/**
+ * Conditionally Print HTML link with dashicon for post format which can be used outside of content-post-format templates.
+ *
+ * @since Guts 0.0.1
+ *
+ * @return void
+ */
+function guts_post_format_link() {
+
+	if ( has_post_format() && !has_post_format('link') ) :
+	
+		echo = '<dd class="post-format"><a class="entry-format label secondary radius" href="<?php echo esc_url( get_post_format_link( get_post_format() ) ); ?>"><i class="dashicons dashicons-format-'. get_post_format() .'"></i> '.get_post_format_string( get_post_format() ).'</a></dd>'; 
+		
+	elseif ( has_post_format('link') ) : // Add an 's' to post format class.
+	
+		echo = '<dd class="post-format"><a class="entry-format label secondary radius" href="<?php echo esc_url( get_post_format_link( get_post_format() ) ); ?>"><i class="dashicons dashicons-format-'. get_post_format() .'s"></i> '.get_post_format_string( get_post_format() ).'</a></dd>'; 
+
+	endif;
+
+}
+endif;
+
+
 if ( ! function_exists( 'guts_entry_meta' ) ) :
 /**
  * Print HTML with meta information for current post: categories, tags, permalink, author, and date.
