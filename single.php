@@ -22,13 +22,23 @@ get_header(); ?>
 				<h1 class="entry-title"><?php the_title(); ?></h1>
 								
 			    <dl class="sub-nav entry-meta">
+			        
 			        <?php guts_post_format_link(); ?>
+			        
 			    	<?php guts_entry_meta(); ?>
+					
 					<?php if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) : ?>
 					<dd class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'guts' ), __( '1 Comment', 'guts' ), __( '% Comments', 'guts' ) ); ?></dd>
 					<?php endif; ?>
+					
 					<?php edit_post_link( __( 'Edit', 'guts' ), '<dd class="edit-link">', '</dd>' ); ?>
 				</dl>
+				<hr />
+				<?php if ( has_post_thumbnail() && ! post_password_required() ) : ?>
+				<div class="entry-thumbnail">
+					<?php the_post_thumbnail(); ?>
+				</div>
+				<?php endif; ?>
 				<hr />
 			 </header>
 			 
@@ -38,12 +48,14 @@ get_header(); ?>
   
 	<div class="row">
 		<div class="large-8 columns">
-			  <?php guts_yoast_breadcrumbs(); ?>
+		
+			<?php guts_yoast_breadcrumbs(); ?>
 	
-					<?php get_template_part( 'content', get_post_format() ); ?>
+			<?php get_template_part( 'content', get_post_format() ); ?>
 					
-					<?php guts_post_nav(); ?>
-					<?php comments_template(); ?>
+			<?php guts_post_nav(); ?>
+			
+			<?php comments_template(); ?>
 	
 		</div>
 		<div class="large-3 offset-1 columns" role="complementary">

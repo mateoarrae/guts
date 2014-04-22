@@ -161,15 +161,29 @@ if ( ! function_exists( 'guts_post_format_link' ) ) :
  */
 function guts_post_format_link() {
 
-	if ( has_post_format() && ! has_post_format( 'link' ) ) :
+	if ( is_single() ) : // Only use label class and dashicons when used in single.php
 	
-		echo '<dd class="post-format"><a class="entry-format label secondary radius" href="<?php echo esc_url( get_post_format_link( get_post_format() ) ); ?>"><i class="dashicons dashicons-format-'. get_post_format() .'"></i> '.get_post_format_string( get_post_format() ).'</a></dd>'; 
+		echo '<dd class="post-format"><a class="entry-format label secondary radius" href="<?php echo esc_url( get_post_format_link( get_post_format() ) ); ?>">';
+	
+		$post_format = get_post_format();
+	
+		switch ( $post_format ) {
+			
+			case 'link' : // Link post format needs 's' adding to class for dashicon
+				echo '<i class="dashicons dashicons-format-'. get_post_format() .'s"></i> ';
+				break;
+				
+			default : 
+				echo '<i class="dashicons dashicons-format-'. get_post_format() .'"></i> ';
+		}
 		
-	elseif ( has_post_format( 'link' ) ) : // Add an 's' to post format class.
+	else :
 	
-		echo '<dd class="post-format"><a class="entry-format label secondary radius" href="<?php echo esc_url( get_post_format_link( get_post_format() ) ); ?>"><i class="dashicons dashicons-format-'. get_post_format() .'s"></i> '.get_post_format_string( get_post_format() ).'</a></dd>'; 
-
+		echo '<dd class="post-format"><a class="entry-format" href="<?php echo esc_url( get_post_format_link( get_post_format() ) ); ?>">';
+	
 	endif;
+
+	echo get_post_format_string( get_post_format() ).'</a></dd>'; 
 
 }
 endif;
