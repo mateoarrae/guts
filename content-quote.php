@@ -24,7 +24,7 @@
 	</dl>
 	<?php if ( has_post_thumbnail() && ! post_password_required() ) : ?>
 	<div class="entry-thumbnail">
-		<?php the_post_thumbnail(); ?>
+		<p><?php the_post_thumbnail(); ?></p>
 	</div>
 	<?php endif; ?>
  </header>
