@@ -163,7 +163,7 @@ function guts_post_format_link() {
 
 	if ( is_single() ) : // Only use label class and dashicons when used in single.php
 	
-		echo '<dd class="post-format"><a class="entry-format label secondary radius" href="<?php echo esc_url( get_post_format_link( get_post_format() ) ); ?>">';
+		echo '<dd class="post-format"><a class="entry-format label secondary radius" href="'.esc_url( get_post_format_link( get_post_format() ) ).'">';
 	
 		$post_format = get_post_format();
 	
@@ -179,7 +179,7 @@ function guts_post_format_link() {
 		
 	else :
 	
-		echo '<dd class="post-format"><a class="entry-format" href="<?php echo esc_url( get_post_format_link( get_post_format() ) ); ?>">';
+		echo '<dd class="post-format"><a class="entry-format" href="'.esc_url( get_post_format_link( get_post_format() ) ).'">';
 	
 	endif;
 
