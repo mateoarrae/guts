@@ -161,11 +161,11 @@ if ( ! function_exists( 'guts_post_format_link' ) ) :
  */
 function guts_post_format_link() {
 
-	if ( is_single() ) : // Only use label class and dashicons when used in single.php
-	
-		echo '<dd class="post-format"><a class="entry-format label secondary radius" href="'.esc_url( get_post_format_link( get_post_format() ) ).'">';
+	if ( is_single() && has_post_format() ) : // Only use label class and dashicons when used in single.php
 	
 		$post_format = get_post_format();
+	
+		echo '<dd class="post-format"><a class="entry-format label secondary radius" href="'.esc_url( get_post_format_link( $post_format ) ).'">';
 	
 		switch ( $post_format ) {
 			
@@ -177,13 +177,14 @@ function guts_post_format_link() {
 				echo '<i class="dashicons dashicons-format-'. get_post_format() .'"></i> ';
 		}
 		
-	else :
-	
-		echo '<dd class="post-format"><a class="entry-format" href="'.esc_url( get_post_format_link( get_post_format() ) ).'">';
-	
-	endif;
+		echo get_post_format_string( get_post_format() ).'</a></dd>'; 
+		
+	elseif ( ! is_single() && has_post_format() ) :
 
-	echo get_post_format_string( get_post_format() ).'</a></dd>'; 
+		echo '<dd class="post-format"><a class="entry-format" href="'.esc_url( get_post_format_link( get_post_format() ) ).'">';
+		echo get_post_format_string( get_post_format() ).'</a></dd>'; 
+		
+	endif;
 
 }
 endif;
