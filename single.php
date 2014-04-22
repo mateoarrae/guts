@@ -38,8 +38,8 @@ get_header(); ?>
 				<div class="entry-thumbnail">
 					<?php the_post_thumbnail(); ?>
 				</div>
-				<?php endif; ?>
 				<hr />
+				<?php endif; ?>
 			 </header>
 			 
     	</div>
