@@ -368,23 +368,25 @@ add_action( 'customize_preview_init', 'guts_customize_preview_js' );
  */
 class guts_top_bar_walker extends Walker_Nav_Menu {
 
-    function display_element($element, &$children_elements, $max_depth, $depth=0, $args, &$output) {
+    function display_element( $element, &$children_elements, $max_depth, $depth = 0, $args, &$output ) {
+    
         $element->has_children = !empty($children_elements[$element->ID]);
-        $element->classes[] = ($element->current || $element->current_item_ancestor) ? 'active' : '';
-        $element->classes[] = ($element->has_children) ? 'has-dropdown' : '';
+        $element->classes[] = ( $element->current || $element->current_item_ancestor ) ? 'active' : '';
+        $element->classes[] = ( $element->has_children ) ? 'has-dropdown' : '';
 
-        parent::display_element($element, $children_elements, $max_depth, $depth, $args, $output);
+        parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
     }
-
-    function start_el(&$output, $item, $depth, $args) {
+	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+	
         $item_html = '';
-        parent::start_el($item_html, $item, $depth, $args);
+        
+        parent::start_el( $item_html, $item, $depth, $args, $id );
 
         $output .= ($depth == 0) ? '<li class="divider"></li>' : '';
 
         $classes = empty($item->classes) ? array() : (array) $item->classes;
 
-        if(in_array('section', $classes)) {
+        if ( in_array( 'section', $classes ) ) {
             $output .= '<li class="divider"></li>';
             $item_html = preg_replace('/<a[^>]*>(.*)<\/a>/iU', '<label>$1</label>', $item_html);
         }
@@ -392,7 +394,7 @@ class guts_top_bar_walker extends Walker_Nav_Menu {
         $output .= $item_html;
     }
 
-    function start_lvl(&$output, $depth = 0, $args = array()) {
+    function start_lvl( &$output, $depth = 0, $args = array() ) {
         $output .= "\n<ul class=\"sub-menu dropdown\">\n";
     }
 
@@ -412,7 +414,7 @@ class guts_comment_walker extends Walker_Comment {
     var $tree_type = 'comment';
     var $db_fields = array( 'parent' => 'comment_parent', 'id' => 'comment_ID' );
       
-    function start_el( &$output, $comment, $depth, $args, $id = 0 ) {
+    function start_el( &$output, $comment, $depth = 0, $args = array(), $id = 0 ) {
         $depth++;
         $GLOBALS['comment_depth'] = $depth;
         $GLOBALS['comment'] = $comment; 
@@ -431,7 +433,7 @@ class guts_comment_walker extends Walker_Comment {
             
 	          <section id="comment-content-<?php comment_ID(); ?>" class="comment-content">
 	            <?php if( !$comment->comment_approved ) : ?>
-	              <p><span class="label alert comment-awaiting-moderation"><?php _e('Your comment is awaiting moderation.', 'guts'); ?></span></p>
+	              <p><span class="label alert comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'guts' ); ?></span></p>
 	            <?php else: comment_text(); ?>
 	            <?php endif; ?>
 	          </section>
@@ -444,13 +446,13 @@ class guts_comment_walker extends Walker_Comment {
 	                </dd>
 	                <dd class="date">
 	                  <a href="<?php echo htmlspecialchars( get_comment_link( get_comment_ID() ) ) ?>">
-	                  <?php comment_date(); ?> <?php _e('at', 'guts'); ?> <?php comment_time(); ?></a>
+	                  <?php comment_date(); ?> <?php _e( 'at', 'guts' ); ?> <?php comment_time(); ?></a>
 	                </dd>
 	                <?php edit_comment_link(__( 'Edit', 'guts' ), '<dd class="edit-link">', '</dd>' ); ?>
 	              </dl>
 	            </div>
 	            <div class="reply large-4 medium-6 columns">
-					<?php $reply_args = array('depth' => $depth,'max_depth' => $args['max_depth'] ); ?>
+					<?php $reply_args = array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ); ?>
 					<?php comment_reply_link( array_merge( $args, $reply_args ) );  ?>
 				</div>
 	          </footer>
@@ -459,7 +461,7 @@ class guts_comment_walker extends Walker_Comment {
           </div>
     <?php }
  
-    function end_el(&$output, $comment, $depth = 0, $args = array() ) { ?>
+    function end_el( &$output, $comment, $depth = 0, $args = array(), $id = 0 ) { ?>
         </article>
     <?php }
     
