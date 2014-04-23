@@ -77,25 +77,26 @@ function guts_setup() {
 	add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list' ) );
 
 	/*
-	 * This theme supports all available post formats by default.
+	 * Guts supports all available post formats by default.
 	 * See http://codex.wordpress.org/Post_Formats
 	 */
 	add_theme_support( 'post-formats', array(
 		'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video'
 	) );
 
-	// This theme uses wp_nav_menu() in three locations.
+	// Guts uses wp_nav_menu() in three locations.
 	register_nav_menu( 'primary', __( 'Navigation Menu', 'guts' ) );
 	register_nav_menu( 'primary-left', __( 'Left Navigation Menu', 'guts' ) );
 	register_nav_menu( 'secondary', __( 'Footer Navigation Menu', 'guts' ) );
 
 	/*
-	 * This theme uses a custom image size for featured images, displayed on posts and pages.
+	 * Guts uses custom image sizes for featured images, displayed on posts and pages.
+	 * More info here: http://markjaquith.wordpress.com/2009/12/23/new-in-wordpress-2-9-post-thumbnail-images/
 	 */
 	add_theme_support( 'post-thumbnails' );
-	set_post_thumbnail_size( 637, 9999, true); // Standard size
-	add_image_size( '12-columns', 970, 9999, true ); // Single post and page size
-	add_image_size( 'front-page', 1920, 9999, true ); // Front page size
+	set_post_thumbnail_size( 637, 9999 ); // Standard size
+	add_image_size( '12-columns', 970, 9999 ); // Single post and page size
+	add_image_size( 'front-page', 1920, 300, true ); // Front page size
 	
 
 	// This theme uses its own gallery styles.
