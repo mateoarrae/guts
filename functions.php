@@ -90,11 +90,13 @@ function guts_setup() {
 	register_nav_menu( 'secondary', __( 'Footer Navigation Menu', 'guts' ) );
 
 	/*
-	 * This theme uses a custom image size for featured images, displayed on
-	 * "standard" posts and pages.
+	 * This theme uses a custom image size for featured images, displayed on posts and pages.
 	 */
 	add_theme_support( 'post-thumbnails' );
-	//set_post_thumbnail_size( 604, 270, true );
+	set_post_thumbnail_size( 637, 9999, true); // Standard size
+	add_image_size( '12-columns', 970, 9999, true ); // Single post and page size
+	add_image_size( 'front-page', 1920, 9999, true ); // Front page size
+	
 
 	// This theme uses its own gallery styles.
 	add_filter( 'use_default_gallery_style', '__return_false' );
@@ -142,7 +144,7 @@ function guts_scripts_styles() {
 	// Loads JavaScript file ready for Customisation.
 	// wp_enqueue_script( 'guts-script', get_template_directory_uri() . '/js/guts.js', array( 'jquery' ), '2013-11-05', true );
 
-	// Loads our main stylesheet.
+	// Loads Guts main stylesheet.
 	wp_enqueue_style( 'guts-style', get_template_directory_uri() . '/css/app.css', array('dashicons'), '2014-04-17' );
 
 	// Loads an Internet Explorer specific stylesheet.
@@ -315,7 +317,7 @@ function guts_get_link_url() {
  * Extend the default WordPress body classes.
  *
  * Adds body class to denote: Active widgets in the sidebar to change the layout and spacing.
- * You can add more custom body classes in this way to control layut and sytyles in your theme.
+ * You can add more custom body classes in this way to control layout and styles in your theme.
  *
  * @since Guts 0.0.1
  *
