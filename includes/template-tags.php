@@ -220,7 +220,7 @@ function guts_entry_meta() {
 
 	// Post author
 	if ( 'post' == get_post_type() ) {
-		printf( '<dd class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></dd>',
+		printf( '<dd class="author vcard">by <a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></dd>',
 			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 			esc_attr( sprintf( __( 'View all posts by %s', 'guts' ), get_the_author() ) ),
 			get_the_author()
