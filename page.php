@@ -24,14 +24,14 @@ get_header(); ?>
 			<div class="small-12 columns">
 				
 				<header class="entry-header">
+					<h1 class="entry-title"><?php the_title(); ?></h1>
+					<hr />
 					<?php if ( has_post_thumbnail() && ! post_password_required() ) : ?>
 					<div class="entry-thumbnail">
 						<?php the_post_thumbnail(); ?>
 					</div>
-					<?php endif; ?>
-
-					<h1 class="entry-title"><?php the_title(); ?></h1>
 					<hr />
+					<?php endif; ?>
 				</header><!-- .entry-header -->
 	
 			</div>

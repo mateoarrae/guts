@@ -12,6 +12,14 @@
 
 get_header(); ?>
 
+<?php if ( has_post_thumbnail() && ! post_password_required() ) : ?>
+ <div class="entry-thumbnail">
+	<?php the_post_thumbnail(); ?>
+ </div>
+<?php else : ?>
+ <hr />
+<?php endif; ?>
+
 <div class="row">
 	<div class="large-8 large-offset-2 columns">
 		<div id="content" class="l-site-content" role="main">
@@ -20,13 +28,7 @@ get_header(); ?>
 				<?php while ( have_posts() ) : the_post(); ?>
 	
 					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-						<header class="entry-header">
-							<?php if ( has_post_thumbnail() && ! post_password_required() ) : ?>
-							<div class="entry-thumbnail">
-								<?php the_post_thumbnail(); ?>
-							</div>
-							<?php endif; ?>
-	
+						<header class="entry-header">	
 							<h1 class="entry-title"><?php the_title(); ?></h1>
 						</header><!-- .entry-header -->
 	

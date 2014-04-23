@@ -43,7 +43,6 @@
 	    <h1 class="site-title"><a class="home-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a> <small><?php bloginfo( 'description' ); ?></small></h1>
 	  </div>
     </div>
-    <hr />
     <?php endif; ?>
   </header>
 </div>
