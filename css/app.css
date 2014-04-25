@@ -463,8 +463,8 @@ body {
   color: #222222;
   padding: 0;
   margin: 0;
-  font-family: "Ubuntu", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-  font-weight: 300;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: normal;
   font-style: normal;
   line-height: 1;
   position: relative;
@@ -2047,7 +2047,7 @@ select {
   color: #222222;
   padding: 1rem;
   display: block;
-  font-family: "Ubuntu", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   font-size: 1rem;
 }
 /* line 36, ../bower_components/foundation/scss/foundation/components/_accordion.scss */
@@ -2782,8 +2782,8 @@ button, .button {
   border-style: solid;
   border-width: 0px;
   cursor: pointer;
-  font-family: "Ubuntu", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-  font-weight: 300;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: normal;
   line-height: normal;
   margin: 0 0 1.25rem;
   position: relative;
@@ -2806,7 +2806,7 @@ button, .button {
   padding-bottom: 1rem;
   -webkit-appearance: none;
   border: none;
-  font-weight: 300 !important;
+  font-weight: normal !important;
 }
 /* line 144, ../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button:hover, button:focus, .button:hover, .button:focus {
@@ -4437,8 +4437,8 @@ kbd {
 
 /* line 87, ../bower_components/foundation/scss/foundation/components/_labels.scss */
 .label {
-  font-weight: 300;
-  font-family: "Ubuntu", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   text-align: center;
   text-decoration: none;
   line-height: 1;
@@ -5002,7 +5002,7 @@ ul.pagination li {
   color: #eeeeee;
   font-weight: normal;
   font-size: 1rem;
-  font-family: "Ubuntu", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 }
 /* line 139, ../bower_components/foundation/scss/foundation/components/_pricing-tables.scss */
 .pricing-table .price {
@@ -5012,7 +5012,7 @@ ul.pagination li {
   color: #333333;
   font-weight: normal;
   font-size: 2rem;
-  font-family: "Ubuntu", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 }
 /* line 140, ../bower_components/foundation/scss/foundation/components/_pricing-tables.scss */
 .pricing-table .description {
@@ -5196,7 +5196,7 @@ ul.pagination li {
   padding: 0.875rem 0;
   list-style-type: none;
   list-style-position: inside;
-  font-family: "Ubuntu", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 }
 /* line 54, ../bower_components/foundation/scss/foundation/components/_side-nav.scss */
 .side-nav li {
@@ -5212,7 +5212,7 @@ ul.pagination li {
 .side-nav li.active > a:first-child {
   color: #4d4d4d;
   font-weight: 300;
-  font-family: "Ubuntu", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 }
 /* line 69, ../bower_components/foundation/scss/foundation/components/_side-nav.scss */
 .side-nav li.divider {
@@ -5381,8 +5381,8 @@ ul.pagination li {
   display: inline;
   margin-left: 1rem;
   margin-bottom: 0.625rem;
-  font-family: "Ubuntu", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-  font-weight: 300;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: normal;
   font-size: 0.875rem;
   color: #999999;
 }
@@ -5726,7 +5726,7 @@ table tfoot tr td {
   padding-right: 2rem;
   padding-bottom: 1.0625rem;
   padding-left: 2rem;
-  font-family: "Ubuntu", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   font-size: 1rem;
 }
 /* line 43, ../bower_components/foundation/scss/foundation/components/_tabs.scss */
@@ -6049,7 +6049,7 @@ meta.foundation-mq-topbar {
   color: white;
   text-transform: uppercase;
   font-size: 0.8125rem;
-  font-weight: 300;
+  font-weight: bold;
   position: relative;
   display: block;
   padding: 0 15px;
@@ -6136,9 +6136,9 @@ meta.foundation-mq-topbar {
   color: white;
   padding: 12px 0 12px 0;
   padding-left: 15px;
-  font-family: "Ubuntu", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   font-size: 0.8125rem;
-  font-weight: 300;
+  font-weight: normal;
   background: #333333;
 }
 /* line 295, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
@@ -6241,7 +6241,7 @@ meta.foundation-mq-topbar {
 }
 /* line 384, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar-section .dropdown li a.parent-link {
-  font-weight: 300;
+  font-weight: normal;
 }
 /* line 389, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar-section .dropdown li.title h5 {
@@ -6267,7 +6267,7 @@ meta.foundation-mq-topbar {
   margin-bottom: 0;
   text-transform: uppercase;
   color: #777777;
-  font-weight: 300;
+  font-weight: bold;
   font-size: 0.625rem;
 }
 
@@ -6515,11 +6515,11 @@ a img {
 /* line 163, ../bower_components/foundation/scss/foundation/components/_type.scss */
 p {
   font-family: inherit;
-  font-weight: 300;
+  font-weight: normal;
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 1.25rem;
-  text-rendering: auto;
+  text-rendering: optimizeLegibility;
 }
 /* line 171, ../bower_components/foundation/scss/foundation/components/_type.scss */
 p.lead {
@@ -6536,11 +6536,11 @@ p aside {
 /* Default header styles */
 /* line 181, ../bower_components/foundation/scss/foundation/components/_type.scss */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Ubuntu", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   font-weight: 300;
   font-style: normal;
   color: #222222;
-  text-rendering: auto;
+  text-rendering: optimizeLegibility;
   margin-top: 0.2rem;
   margin-bottom: 0.5rem;
   line-height: 1.4;
@@ -6623,8 +6623,8 @@ small {
 
 /* line 233, ../bower_components/foundation/scss/foundation/components/_type.scss */
 code {
-  font-family: "Ubuntu Mono", Consolas, "Liberation Mono", Courier, monospace;
-  font-weight: normal;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+  font-weight: bold;
   color: #bd260d;
 }
 
@@ -9716,8 +9716,8 @@ input[type="submit"] {
   border-style: solid;
   border-width: 0px;
   cursor: pointer;
-  font-family: "Ubuntu", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-  font-weight: 300;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: normal;
   line-height: normal;
   margin: 0 0 1.25rem;
   position: relative;
@@ -9734,7 +9734,7 @@ input[type="submit"] {
   padding-bottom: true;
   -webkit-appearance: none;
   border: none;
-  font-weight: 300 !important;
+  font-weight: normal !important;
   background-color: #008cba;
   border-color: #007095;
   color: white;
@@ -9767,7 +9767,7 @@ input[type="submit"]:hover, input[type="submit"]:focus {
   padding: 0.875rem 0;
   list-style-type: none;
   list-style-position: inside;
-  font-family: "Ubuntu", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 }
 /* line 54, ../bower_components/foundation/scss/foundation/components/_side-nav.scss */
 .widget ul li {
@@ -9783,7 +9783,7 @@ input[type="submit"]:hover, input[type="submit"]:focus {
 .widget ul li.active > a:first-child {
   color: #4d4d4d;
   font-weight: 300;
-  font-family: "Ubuntu", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 }
 /* line 69, ../bower_components/foundation/scss/foundation/components/_side-nav.scss */
 .widget ul li.divider {
@@ -9797,8 +9797,8 @@ input[type="submit"]:hover, input[type="submit"]:focus {
 /* line 33, ../scss/_module.scss */
 .tag-links a,
 .edit-link a {
-  font-weight: 300;
-  font-family: "Ubuntu", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   text-align: center;
   text-decoration: none;
   line-height: 1;
