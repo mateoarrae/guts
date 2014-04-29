@@ -28,7 +28,7 @@ input[type="submit"] {
 	}
 }
 
-.tag-links,
+footer .tag-links,
 .edit-link {
 	a {
 		@include label( $bg: $secondary-color, $text-size: $label-font-sizing, $padding: $label-padding, $radius: $label-radius );
@@ -40,6 +40,7 @@ input[type="submit"] {
 	&.edit-link {
 		a {
 			color: $label-font-color;
+			padding: $label-padding;
 		}
 	}
 }

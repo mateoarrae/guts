@@ -5641,7 +5641,7 @@ dialog[open] {
 .sub-nav li a {
   text-decoration: none;
   color: #999999;
-  padding: 0.1875rem 1rem;
+  padding: 0.1875em 0.1875em;
 }
 /* line 89, ../bower_components/foundation/scss/foundation/components/_sub-nav.scss */
 .sub-nav dt a:hover,
@@ -5656,7 +5656,7 @@ dialog[open] {
   border-radius: 3px;
   font-weight: normal;
   background: #008cba;
-  padding: 0.1875rem 1rem;
+  padding: 0.1875em 0.1875em;
   cursor: default;
   color: white;
 }
@@ -10145,7 +10145,7 @@ input[type="submit"]:hover, input[type="submit"]:focus {
 }
 
 /* line 33, ../scss/_module.scss */
-.tag-links a,
+footer .tag-links a,
 .edit-link a {
   font-weight: normal;
   font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
@@ -10167,9 +10167,10 @@ input[type="submit"]:hover, input[type="submit"]:focus {
 /* line 41, ../scss/_module.scss */
 .sub-nav dd.edit-link a {
   color: #333333;
+  padding: 0.25rem 0.5rem 0.375rem;
 }
 
-/* line 48, ../scss/_module.scss */
+/* line 49, ../scss/_module.scss */
 .panel.callout .edit-link a {
   background: #baeeff;
   color: #008cba;
@@ -10192,8 +10193,8 @@ input[type="submit"]:hover, input[type="submit"]:focus {
 }
 
 /* line 21, ../scss/_state.scss */
-.tag-links a:hover,
-.tag-links a:active,
+footer .tag-links a:hover,
+footer .tag-links a:active,
 .edit-link a:hover,
 .edit-link a:active {
   background: #dadada;
