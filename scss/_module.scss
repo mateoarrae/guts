@@ -9,7 +9,7 @@
 }
 
 input[type="submit"] {
-	@include button( $radius: true, $is-input: true );
+	@include button( $radius: true );
 }
 
 .vcard {
