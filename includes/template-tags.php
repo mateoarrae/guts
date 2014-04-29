@@ -214,8 +214,8 @@ function guts_entry_meta() {
 
 	// Translators: used between list items, there is a space after the comma.
 	$tag_list = get_the_tag_list( '', __( ', ', 'guts' ) );
-	if ( $tag_list ) {
-		echo '<dd class="tags-links">' . $tag_list . '</dd>';
+	if ( $tag_list && ! is_single() ) {
+		echo '<dd class="tag-links">' . $tag_list . '</dd>';
 	}
 
 	// Post author
