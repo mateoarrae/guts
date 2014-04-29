@@ -52,9 +52,10 @@
 @import "base";
 
 // WebFonts and IconFonts
+// Take a look at the ubuntu example to see how to include Google fonts in your stylesheet.
 @import "fonts/dashicons";
 @import "fonts/foundation-icons";
-@import "fonts/ubuntu";
+//import "fonts/ubuntu";
 
 // Guts is setup to use SMACSS Scalable and Modular Architecture for CSS
 // Look inside the _layout.scss, _module.scss and _state.scss files to find out more.
