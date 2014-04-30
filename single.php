@@ -19,6 +19,9 @@ get_header(); ?>
     	<div class="small-12 columns">
     	
 	    	<header class="entry-header">
+	    	
+				<?php guts_yoast_breadcrumbs(); ?>
+			
 				<h1 class="entry-title"><?php the_title(); ?></h1>
 								
 			    <dl class="sub-nav entry-meta">
@@ -48,8 +51,6 @@ get_header(); ?>
   
 	<div class="row">
 		<div class="large-8 columns">
-		
-			<?php guts_yoast_breadcrumbs(); ?>
 	
 			<?php get_template_part( 'content', get_post_format() ); ?>
 					
