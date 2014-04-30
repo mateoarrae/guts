@@ -10165,12 +10165,12 @@ footer .tag-links a,
 }
 
 /* line 41, ../scss/_module.scss */
-.sub-nav dd.edit-link a {
+.sub-nav dd.post-format a.label, .sub-nav dd.edit-link a {
   color: #333333;
   padding: 0.25rem 0.5rem 0.375rem;
 }
 
-/* line 49, ../scss/_module.scss */
+/* line 48, ../scss/_module.scss */
 .panel.callout .edit-link a {
   background: #baeeff;
   color: #008cba;
@@ -10201,36 +10201,42 @@ footer .tag-links a:active,
 }
 
 /* line 28, ../scss/_state.scss */
+.post-format a.label:hover,
+.post-format a.label:active {
+  background: #dadada;
+}
+
+/* line 35, ../scss/_state.scss */
 .panel.callout a:hover,
 .panel.callout a:active {
   color: black;
 }
-/* line 33, ../scss/_state.scss */
+/* line 40, ../scss/_state.scss */
 .panel.callout .edit-link a:hover,
 .panel.callout .edit-link a:active {
   background: #a1e8ff;
 }
 
 @media only screen and (min-width: 40.063em) {
-  /* line 44, ../scss/_state.scss */
+  /* line 51, ../scss/_state.scss */
   blockquote.alignright, blockquote.alignleft,
   .wp-caption.alignright,
   .wp-caption.alignleft {
     width: 47%;
   }
-  /* line 47, ../scss/_state.scss */
+  /* line 54, ../scss/_state.scss */
   blockquote.alignright,
   .wp-caption.alignright {
     margin: 0.5625rem 0 0.5625rem 1.25rem;
   }
 
-  /* line 54, ../scss/_state.scss */
+  /* line 61, ../scss/_state.scss */
   img.alignleft,
   .wp-caption.alignleft {
     margin: 0.5625rem 1.25rem 0.5625rem 0;
     width: 47%;
   }
-  /* line 58, ../scss/_state.scss */
+  /* line 65, ../scss/_state.scss */
   img.alignright,
   .wp-caption.alignright {
     margin: 0.5625rem 0 0.5625rem 1.25rem;

@@ -37,11 +37,10 @@ footer .tag-links,
 }
 
 .sub-nav dd {
-	&.edit-link {
-		a {
+	&.post-format a.label,
+	&.edit-link a {
 			color: $label-font-color;
 			padding: $label-padding;
-		}
 	}
 }
 .panel.callout {

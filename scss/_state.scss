@@ -23,6 +23,13 @@ footer .tag-links,
 	}
 }
 
+.post-format {
+	a.label:hover,
+	a.label:active {
+		background: darken( $secondary-color, 5% );
+	}
+}
+
 .panel.callout {
 	a:hover,
 	a:active {
