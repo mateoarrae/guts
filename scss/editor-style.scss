@@ -1,0 +1,20 @@
+// Global Foundation Settings
+@import "settings";
+
+// Comment out this import if you don't want to use normalize
+@import "normalize";
+
+// Only the type module of Foundation is needed for the editor style
+@import "foundation/components/type";
+
+// Required Compass Utilities, Custom Mixins and Custom Variables for Guts
+// Take a lookat _base.scss for more details.
+@import "base";
+
+// WebFonts and IconFonts
+// Dashicons are already loaded by WordPress for the admin area
+// If you've added custom fonts, import them here to make them show in the editor
+@import "fonts/foundation-icons";
+
+// Guts Custom Styling is mostly unnecessary, but some editor only styles are required.
+@import "tinymce";

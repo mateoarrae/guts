@@ -63,6 +63,8 @@ function guts_setup() {
 	 */
 	load_theme_textdomain( 'guts', get_template_directory() . '/languages' );
 	
+	// This theme styles the visual editor to resemble the theme style.
+	add_editor_style( 'css/editor-style.css' );
 	
 	/**
 	 * Adds Required Support for RSS feed links to <head> for posts and comments.
