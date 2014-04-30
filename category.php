@@ -19,7 +19,7 @@ get_header(); ?>
 		<div class="small-12 columns">
 		
 			<header class="archive-header">
-				<h1 class="archive-title"><?php printf( __( 'Category Archives: %s', 'twentyfourteen' ), single_cat_title( '', false ) ); ?></h1>
+				<h1 class="archive-title"><?php printf( __( 'Category Archives: %s', 'guts' ), single_cat_title( '', false ) ); ?></h1>
 				<?php
 					// Show an optional term description.
 					$term_description = term_description();
