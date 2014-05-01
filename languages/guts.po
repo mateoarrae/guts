@@ -1,0 +1,293 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: guts-0.0.1\n"
+"POT-Creation-Date: 2014-05-01 10:37-0000\n"
+"PO-Revision-Date: 2014-05-01 10:37-0000\n"
+"Last-Translator: \n"
+"Language-Team: Rose Mckeon <rose@rosemckeon.co.uk>\n"
+"Language: English\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e\n"
+"X-Poedit-Basepath: /www/guts/wp-content/themes/guts/\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: 404.php:19
+msgid "Not Found"
+msgstr ""
+
+#: 404.php:24
+msgid "This is somewhat embarrassing, isn&rsquo;t it?"
+msgstr ""
+
+#: 404.php:25
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr ""
+
+#: archive.php:31
+#, php-format
+msgid "Daily Archives: %s"
+msgstr ""
+
+#: archive.php:33
+#, php-format
+msgid "Monthly Archives: %s"
+msgstr ""
+
+#: archive.php:35
+#, php-format
+msgid "Yearly Archives: %s"
+msgstr ""
+
+#: archive.php:37 taxonomy-post_format.php:59
+msgid "Archives"
+msgstr ""
+
+#: author.php:34
+#, php-format
+msgid "All posts by %s"
+msgstr ""
+
+#: category.php:22
+#, php-format
+msgid "Category Archives: %s"
+msgstr ""
+
+#: comments.php:45
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:46
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: comments.php:47
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: comments.php:52
+msgid "Comments are closed."
+msgstr ""
+
+#: content-aside.php:21 content-audio.php:22 content-chat.php:21
+#: content-gallery.php:21 content-image.php:21 content-link.php:21
+#: content-quote.php:21 content-status.php:21 content-video.php:21
+#: content.php:23 single.php:34
+msgid "Leave a comment"
+msgstr ""
+
+#: content-aside.php:21 content-audio.php:22 content-chat.php:21
+#: content-gallery.php:21 content-image.php:21 content-link.php:21
+#: content-quote.php:21 content-status.php:21 content-video.php:21
+#: content.php:23 single.php:34
+msgid "1 Comment"
+msgstr ""
+
+#: content-aside.php:21 content-audio.php:22 content-chat.php:21
+#: content-gallery.php:21 content-image.php:21 content-link.php:21
+#: content-quote.php:21 content-status.php:21 content-video.php:21
+#: content.php:23 single.php:34
+msgid "% Comments"
+msgstr ""
+
+#: content-aside.php:23 content-aside.php:54 content-audio.php:24
+#: content-audio.php:55 content-chat.php:23 content-chat.php:54
+#: content-gallery.php:23 content-gallery.php:54 content-image.php:23
+#: content-image.php:54 content-link.php:23 content-link.php:54
+#: content-quote.php:23 content-quote.php:54 content-status.php:23
+#: content-status.php:54 content-video.php:23 content-video.php:54
+#: content.php:25 content.php:56 front-page.php:41 functions.php:456
+#: page.php:48 single.php:37
+msgid "Edit"
+msgstr ""
+
+#: content-aside.php:43 content-audio.php:44 content-chat.php:43
+#: content-gallery.php:43 content-image.php:43 content-link.php:43
+#: content-quote.php:43 content-status.php:43 content-video.php:43
+#: content.php:45
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: content-aside.php:44 content-audio.php:45 content-chat.php:44
+#: content-gallery.php:44 content-image.php:44 content-link.php:44
+#: content-quote.php:44 content-status.php:44 content-video.php:44
+#: content.php:46 front-page.php:37 page.php:44
+msgid "Pages:"
+msgstr ""
+
+#: content-none.php:14
+msgid "Nothing Found"
+msgstr ""
+
+#: content-none.php:21
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: content-none.php:25
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: content-none.php:30
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: footer.php:28
+msgid "Proudly powered by"
+msgstr ""
+
+#: footer.php:28
+msgid "http://wordpress.org/"
+msgstr ""
+
+#: footer.php:31
+msgid "Created by"
+msgstr ""
+
+#: footer.php:31
+msgid "http://www.rosemckeon.co.uk"
+msgstr ""
+
+#: functions.php:90
+msgid "Navigation Menu"
+msgstr ""
+
+#: functions.php:91
+msgid "Left Navigation Menu"
+msgstr ""
+
+#: functions.php:92
+msgid "Footer Navigation Menu"
+msgstr ""
+
+#: functions.php:223
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: functions.php:238
+msgid "Footer"
+msgstr ""
+
+#: functions.php:240
+msgid "Appears in the footer section of the site."
+msgstr ""
+
+#: functions.php:248
+msgid "Sidebar"
+msgstr ""
+
+#: functions.php:250
+msgid "Appears on posts and pages in the sidebar."
+msgstr ""
+
+#: functions.php:441
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: functions.php:454
+msgid "at"
+msgstr ""
+
+#: header.php:32
+msgid "Menu"
+msgstr ""
+
+#: home.php:23
+msgid "Articles"
+msgstr ""
+
+#: search.php:18
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: searchform.php:14
+msgid "Search for"
+msgstr ""
+
+#: tag.php:25
+#, php-format
+msgid "Tag Archives: %s"
+msgstr ""
+
+#: taxonomy-post_format.php:32
+msgid "Asides"
+msgstr ""
+
+#: taxonomy-post_format.php:35
+msgid "Audio"
+msgstr ""
+
+#: taxonomy-post_format.php:38
+msgid "Chat"
+msgstr ""
+
+#: taxonomy-post_format.php:41
+msgid "Galleries"
+msgstr ""
+
+#: taxonomy-post_format.php:44
+msgid "Images"
+msgstr ""
+
+#: taxonomy-post_format.php:47
+msgid "Links"
+msgstr ""
+
+#: taxonomy-post_format.php:50
+msgid "Quotes"
+msgstr ""
+
+#: taxonomy-post_format.php:53
+msgid "Status Updates"
+msgstr ""
+
+#: taxonomy-post_format.php:56
+msgid "Videos"
+msgstr ""
+
+#: includes/back-compat.php:41 includes/back-compat.php:53
+#: includes/back-compat.php:68
+#, php-format
+msgid ""
+"Guts requires at least WordPress version 3.8. You are running version %s. "
+"Please upgrade and try again."
+msgstr ""
+
+#: includes/template-tags.php:60
+msgid "&laquo;"
+msgstr ""
+
+#: includes/template-tags.php:61
+msgid "&raquo;"
+msgstr ""
+
+#: includes/template-tags.php:111
+msgid "Other Posts"
+msgstr ""
+
+#: includes/template-tags.php:204
+msgid "Sticky"
+msgstr ""
+
+#: includes/template-tags.php:210 includes/template-tags.php:216
+msgid ", "
+msgstr ""
+
+#: includes/template-tags.php:225
+#, php-format
+msgid "View all posts by %s"
+msgstr ""
+
+#: includes/template-tags.php:249
+#, php-format
+msgid "Permalink to %s"
+msgstr ""
