@@ -147,12 +147,16 @@ function guts_scripts_styles() {
 	// Loads JavaScript file ready for Customisation.
 	// wp_enqueue_script( 'guts-script', get_template_directory_uri() . '/js/guts.js', array( 'jquery' ), '2013-11-05', true );
 
-	// Loads Guts main stylesheet.
-	wp_enqueue_style( 'guts-style', get_template_directory_uri() . '/css/guts.css', array('dashicons'), '2014-04-17' );
+	// Guts main stylesheet. 
+	// Default Production Stylesheet - use this for production and if you're using SASS.
+	wp_enqueue_style( 'guts-style', get_template_directory_uri() . '/css/minified/guts.css', array('dashicons'), '2014-04-17' );
+	// Optional Development Stylesheet - use this during development or if you want to use plain CSS
+	// Comment out the default stylesheet above and uncomment the stylesheet below.
+	// wp_enqueue_style( 'guts-style', get_template_directory_uri() . '/css/guts.css', array('dashicons'), '2014-04-17' );
 
 	// Loads an Internet Explorer specific stylesheet.
-	//wp_enqueue_style( 'guts-ie', get_template_directory_uri() . '/css/ie.css', array( 'guts-style' ), '2013-11-05' );
-	//wp_style_add_data( 'guts-ie', 'conditional', 'lt IE 9' );
+	// wp_enqueue_style( 'guts-ie', get_template_directory_uri() . '/css/ie.css', array( 'guts-style' ), '2013-11-05' );
+	// wp_style_add_data( 'guts-ie', 'conditional', 'lt IE 9' );
 }
 add_action( 'wp_enqueue_scripts', 'guts_scripts_styles' );
 
